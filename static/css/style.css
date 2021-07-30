@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgb(3,64,106);
+    background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    /* background-clip: padding-box; */
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login card */
+#loginCard{
+    display: none;
+    color: bisque;
+    background-color: black;
+    margin: auto;
+    position: absolute;
+
+}
+/* login card */
+
+/* Card de descrição */
+#descriptionCard{
+    background-color: rgba(0, 0, 0, .1);
+    color: blanchedalmond;
+    width: 60vw;
+    text-align: center;
+    margin-top: 10rem;
+    border-radius: 20px;
+    padding: 2rem;
+}
+#descriptionCard img{
+    width: 5rem;
+}
+#descriptionCard h1{
+    text-shadow: .1em .1em .2em black;
+    margin: 1rem 0;
+}
+#descriptionCard p{
+
+}
+#descriptionCard .descriptionBtn{
+    background-color: rgba(0, 255, 255, 0);
+    border: 1px none black;
+    border-radius: 2px;
+    width: 10rem;
+    padding: 2px;
+    margin: auto;
+} 
+#descriptionCard .btn{
+    margin: .3rem;
+    
+}
