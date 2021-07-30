@@ -15,14 +15,55 @@ section{
     justify-content: center;
     align-items: center;
 }
-
+#sideImg{
+    position: absolute;
+    bottom: 2%;
+    width: 30vw;
+    left: 2%;
+}
 /* Login card */
 #loginCard{
-    display: none;
     color: bisque;
-    background-color: black;
-    margin: auto;
-    position: absolute;
+    background-color: rgba(0, 0, 0, .1);
+    justify-content: center;
+    align-items: center;
+    padding: 10rem;
+    border-radius: 0px 00px 20px 0px;
+}
+#loginCard .loginIcon{
+    text-align: center;
+    width: 100%;  
+}
+#loginCard .loginIcon img{
+    width: 6rem;
+}
+#loginCard .loginForm{
+    display: grid;
+    padding: 1rem;
+
+}
+#loginCard .loginForm .fas{
+    margin: .1rem;
+}
+#loginCard #username{
+    margin-left: .2rem;
+    width: 12rem;
+    height: 1.2rem;
+ 
+}
+#loginCard #password{
+    margin-left: .5rem;
+    width: 12rem;
+    height: 1.2rem;
+
+}
+#loginCard .loginForm button{
+    margin-top: 1.2rem;
+    width: 12vw;
+    justify-self: center;
+}
+#loginCard .btn{
+   margin: 1rem;
 
 }
 /* login card */
@@ -36,6 +77,7 @@ section{
     margin-top: 10rem;
     border-radius: 20px;
     padding: 2rem;
+    display: none;
 }
 #descriptionCard img{
     width: 5rem;
