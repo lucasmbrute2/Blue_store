@@ -31,15 +31,20 @@ def admin():
         return redirect('/') #Fazer interação de acesso negado com JS
     
 
-@app.route('/about')
-def page_about():
-    return render_template('sobre.html')
+@app.route('/vendedor')
+def pagina_login():
+    return render_template('login.html')
 
 @app.route('/loja')
-def page_loja():
+def pagina_loja():
     return render_template('loja.html')
 
-#Fiz as rotas para os outros botões, mas acredito que seja desnecessário, essa parte pode ficar só no FRONT
+@app.route('/about')
+def pagina_sobre():
+    return render_template('sobre.html')
+
+
+
 
 
 
