@@ -15,3 +15,4 @@ descriptionChanger.addEventListener('click', () =>{
     img.src = '../static/img/home/initial.svg'
 })
 // banana 
+
