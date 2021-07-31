@@ -16,6 +16,7 @@ class Login:
 def index():
     return render_template('index.html')
 
+
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
     if request.method == 'POST':
@@ -30,9 +31,15 @@ def admin():
         return redirect('/') #Fazer interação de acesso negado com JS
     
 
+@app.route('/about')
+def page_about():
+    return render_template('sobre.html')
 
+@app.route('/loja')
+def page_loja():
+    return render_template('loja.html')
 
-
+#Fiz as rotas para os outros botões, mas acredito que seja desnecessário, essa parte pode ficar só no FRONT
 
 
 
