@@ -14,3 +14,4 @@ descriptionChanger.addEventListener('click', () =>{
     descriptionCard.style.display = 'Block'
     img.src = '../static/img/home/initial.svg'
 })
+// banana 
