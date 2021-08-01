@@ -16,6 +16,13 @@ class Login:
 def index():
     return render_template('index.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/voltar')
+def volta_pagina():
+    return render_template('index.html')
 
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
@@ -28,7 +35,7 @@ def admin():
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
         return render_template('admin.html')
     else: 
-        return redirect('/') #Fazer interação de acesso negado com JS
+        return redirect('/login') #Fazer interação de acesso negado com JS
     
 
 @app.route('/vendedor')
