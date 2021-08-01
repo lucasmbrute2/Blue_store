@@ -38,7 +38,7 @@ def admin():
     else: 
         return redirect('/login') #Fazer interação de acesso negado com JS
     
-
+# Botões da página inicial
 @app.route('/vendedor')
 def pagina_login():
     return render_template('login.html')
