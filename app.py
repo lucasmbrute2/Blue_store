@@ -11,7 +11,7 @@ class Login:
         self.usuario = usuario
         self.senha = senha
         
-
+# Página de Login do ADM
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -24,6 +24,7 @@ def login():
 def volta_pagina():
     return render_template('index.html')
 
+# Validação de user e password para entrada na área do ADM
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
     if request.method == 'POST':
