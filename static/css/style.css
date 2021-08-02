@@ -78,6 +78,7 @@ section{
 
 }
 #loginCard .loginForm button{
+    display: none;
     margin-top: 1.2rem;
     width: 90%;
     height: 90%;
@@ -88,7 +89,7 @@ section{
     font-weight: 700;
     font-size: 1rem;
     border: none;
-    cursor: pointer;
+    cursor: pointer;   
 }
 #loginCard .btn{
     padding: .5rem ;
@@ -142,7 +143,7 @@ section{
     grid-area: header;
 }
 #descriptionCard .fristBtn{
-    grid-area: btn1;
+    grid-area:  btn1;
 }
 #descriptionCard .seccondBtn{
     grid-area: btn2;
