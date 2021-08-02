@@ -1,6 +1,6 @@
 let usuario = document.querySelector('#username')
 let senha = document.querySelector('#password')
-let botao = document.querySelector("#bttnEntrar")
+let botao = document.querySelector("#btnEntrar")
 
 /* Função para fazer o botão aparecer e desaparecer de acordo com o length. */
 usuario.addEventListener('keyup',()=>{

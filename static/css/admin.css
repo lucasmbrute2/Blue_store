@@ -17,8 +17,8 @@ section{
     grid-template-areas:
      'nav nav'
      'header header'
-      'aside article' 
-      'footer footer';
+     'aside article' 
+     'footer footer';
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 3fr 23fr 1fr;
 }
