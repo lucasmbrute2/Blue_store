@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://kit.fontawesome.com/7515ad9b6d.js" crossorigin="anonymous"></script>
+    <title>Admin Login</title>
+</head>
+
+<body>
+    <section>
+        <div id="loginCard">
+            <div class="loginIcon">
+                <img src="../static/img/home/avatar.svg" alt="avatar icon">
+                <h2>Login</h2>
+            </div>
+            <form action="/admin" class="loginForm" method="POST">
+                <i class="fas fa-user-friends">
+                    <input name='username' id="username" type="text" placeholder="Usuário" required>
+                </i>
+                <i class="fas fa-key">
+                    <input name='password' id="password" type="password" placeholder="Senha" required>
+                </i>
+
+                <button id="bttnEntrar" type="submit">Entrar</button>
+            </form>
+
+            <a href="/voltar"><button class="btn jsBtn">Voltar</button></a>
+            <img id="sideImg" src="../static/img/home/admin.svg" alt="">
+        </div>
+    </section>
+    <script src="../static/js/home/login.js"></script>
+</body>
+
+</html>

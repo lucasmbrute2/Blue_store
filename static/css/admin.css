@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgb(3,64,106);
+    background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    font-family: 'Hahmlet', serif;
+}
+section{
+    display: grid;
+    grid-template-areas:
+     'nav nav'
+     'header header'
+      'aside article' 
+      'footer footer';
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 3fr 23fr 1fr;
+}
+nav{
+    
+    background-color: green;
+    grid-area: nav;
+}
+header{
+    background-color: yellow    ;
+    width: 100%;
+    grid-area: header;
+}
+aside{
+    background-color: aliceblue;
+    width: 100%;
+    grid-area: aside;
+}
+article{
+    background-color: brown;
+    width: 100%;
+    grid-area: article;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+div{
+    background-color: antiquewhite;
+    margin: 1rem;
+    width: 20%;
+
+}
+footer{
+    background-color: blue;
+    grid-area: footer;
+}
