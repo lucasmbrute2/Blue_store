@@ -33,6 +33,7 @@ section{
     padding: 10rem;
     border-radius: 0px 00px 20px 0px;
     display: block;
+    height: 250px;
 }
 #loginCard .loginIcon{
     text-align: center;
