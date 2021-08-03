@@ -11,12 +11,20 @@ class Login:
         self.usuario = usuario
         self.senha = senha
         
-
+# Página de Login do ADM
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
+@app.route('/voltar')
+def volta_pagina():
+    return render_template('index.html')
+
+# Validação de user e password para entrada na área do ADM
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
     if request.method == 'POST':
@@ -28,13 +36,9 @@ def admin():
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
         return render_template('admin.html')
     else: 
-        return redirect('/') #Fazer interação de acesso negado com JS
+        return render_template('login.html') #Fazer interação de acesso negado com JS
     
-
-@app.route('/vendedor')
-def pagina_login():
-    return render_template('login.html')
-
+# Botões da página inicial
 @app.route('/loja')
 def pagina_loja():
     return render_template('loja.html')

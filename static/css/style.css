@@ -33,6 +33,7 @@ section{
     padding: 10rem;
     border-radius: 0px 00px 20px 0px;
     display: block;
+    height: 250px;
 }
 #loginCard .loginIcon{
     text-align: center;
@@ -78,6 +79,7 @@ section{
 
 }
 #loginCard .loginForm button{
+    display: none;
     margin-top: 1.2rem;
     width: 90%;
     height: 90%;
@@ -88,7 +90,7 @@ section{
     font-weight: 700;
     font-size: 1rem;
     border: none;
-    cursor: pointer;
+    cursor: pointer;   
 }
 #loginCard .btn{
     padding: .5rem ;
@@ -142,7 +144,7 @@ section{
     grid-area: header;
 }
 #descriptionCard .fristBtn{
-    grid-area: btn1;
+    grid-area:  btn1;
 }
 #descriptionCard .seccondBtn{
     grid-area: btn2;
