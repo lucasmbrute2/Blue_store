@@ -54,7 +54,7 @@ def pagina_sobre():
 
 # vai logo desgraça
 
-
+# Codigo escroto n quer funcionar
 
 
 
