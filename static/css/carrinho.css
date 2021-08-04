@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgb(3,64,106);
+    background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Hahmlet', serif;
+}
+
+nav{
+    background-color: #18286950;
+    font-weight: 500;
+    position: block;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin-left: 18rem;
+    margin-top: 2rem;
+    border-radius: 20px
+ }
+
+ nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    font-size: 1vw;
+    
+ }
+ 
+ nav ul h2{  
+     color: white;
+     display: flex;
+     margin-right: 16rem;
+     margin-top: 2.4rem;
+     justify-content: center;
+     text-shadow: 0 0 0.2em rgb(216, 211, 211), 0 0 0.2em rgb(233, 226, 226);
+
+
+ }
+
+ nav ul li{
+    padding: 3rem;
+ }
+
+ nav ul li a{
+    text-decoration: none;
+    color: #fff;
+ }
+
+ header#um div#titulo{
+    background-color: #18286950;
+    color: white;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-left: 18rem;
+    margin-top: 3rem;
+    border-radius: 20px
+ }
+
+header#um div#titulo img {
+    max-width: 70px;
+    max-height: 70px;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    
+ }
+
+ section#um div#dois{
+    background-color:#ffffff80;
+    position: absolute;
+    width: 70%;
+    height: 60%;
+    display: flex;
+    justify-content: left;
+    margin-left: 18rem;
+    border-radius: 20px;
+    list-style: none;
+    
+
+ }  
+
+ section#um div#dois li#produto{
+    font-size: 2rem;
+    padding-left: 1rem;
+    
+ }
+
+ section#um div#dois li#preço{
+    font-size: 2rem;
+    padding-left: 65rem;
+ }
