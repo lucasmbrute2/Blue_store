@@ -7,12 +7,95 @@
 body{
     background: rgb(3,64,106);
     background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
     background-repeat: no-repeat;
     background-clip: padding-box;
     font-family: 'Hahmlet', serif;
 }
+#cabecalho{
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: .1em .1em .2em black;
+}   
+
+#menu{    
+    width: 100%;  
+}
+#menu ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+#menu ul li{
+    padding: .75rem;
+    width: auto;
+   
+
+}
+#menu ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 300%;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    border-radius: .2rem;
+    transition: all .5s ease-in-out;
+}
+
+nav.menu a:hover{
+    border:none;
+    background: white;
+    color: rgba(9,58,121,1);
+    padding: .8rem;
+    font-weight: 600;
+}
+
+#cabecalho h1{
+    font-size:3rem;
+    color:#c6e2ff;
+    text-align: center;
+    animation: neon .1s ease-in-out infinite alternate;
+    margin-top: 2rem;
+}
+@keyframes neon{
+    from{
+        text-shadow: 
+        0 0 6px rgba(202,228,225,0.92),
+        0 0 30px rgba(202,228,225,0.34),
+        0 0 12px rgba(30,132,242,0.52),
+        0 0 21px rgba(30,132,242,0.92),
+        0 0 34px rgba(30,132,242,0.78),
+        0 0 54px rgba(30,132,242,0.92);
+
+    }
+    to{
+        text-shadow: 
+        0 0 6px rgba(202,228,225,0.98),
+        0 0 30px rgba(202,228,225,0.42),
+        0 0 12px rgba(30,132,242,0.58),
+        0 0 22px rgba(30,132,242,0.84),
+        0 0 38px rgba(30,132,242,0.88),
+        0 0 60px rgba(30,132,242,1);
+    
+    }
+}
+
+header:focus, header:hover{
+
+    color: #c6e2ff;
+        text-shadow:
+    0 0 2px rgba(202,228,225,0.92),
+    0 0 10px rgba(202,228,225,0.34),
+    0 0 4px rgba(30,132,242,0.52),
+    0 0 7px rgba(30,132,242,0.92),
+    0 0 11px rgba(30,132,242,0.78),
+    0 0 16px rgba(30,132,242,0.92);
+
+}
+    
 
 section{
     /* max-width: 50%;
