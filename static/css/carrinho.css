@@ -70,10 +70,9 @@ header#um div#titulo img {
     max-height: 70px;
     margin-top: 1rem;
     margin-left: 5rem;
-    
  }
 
- section#um div#dois{
+ section#tabela table{
     background-color:#ffffff80;
     position: absolute;
     width: 70%;
@@ -87,13 +86,18 @@ header#um div#titulo img {
 
  }  
 
- section#um div#dois li#produto{
+ section#tabela table tr{
     font-size: 2rem;
     padding-left: 1rem;
     
  }
 
- section#um div#dois li#preço{
+ section#tabela table td#preço{
     font-size: 2rem;
     padding-left: 65rem;
  }
+ section#tabela table td#produtos{
+    padding-left: 1rem;
+ }
+ 
+ 
