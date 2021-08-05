@@ -8,7 +8,7 @@ db = SQLAlchemy(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ilzpkagm:tFfCmwORirxRZeVpvqJJ1vFd7YVWXOE6@kesavan.db.elephantsql.com/ilzpkagm'
 acesso_usuario = 'admin'
-acesso_senha = "admin"
+acesso_senha = 'admin'
 
 #Classe que recebe o usuário e senha dos donos do Site.
 class Login():
@@ -16,22 +16,21 @@ class Login():
     def __init__(self, usuario, senha):
         self.usuario = usuario
         self.senha = senha
-        
-
-
 # Classe que cria a table
 class Vendedor(db.Model):
     id = db.Column(db.Integer, primary_key=True,autoincrement = True )
     nome = db.Column(db.String(50), nullable= False)
     descricao = db.Column(db.String(500), nullable =False)
     imagem = db.Column(db.String(7000), nullable=False)
-    preco = db.Column(db.Integer, nullable = False )
+    preco = db.Column(db.Float(40), nullable = False )
+    # categoria = db.Column(db.String(20), nullable = False)
     
     def __init__(self, nome,descricao,imagem,preco):
         self.nome = nome
         self.descricao = descricao
         self.imagem = imagem
         self.preco = preco
+        # self.categoria = categoria
 
 
 # Página de Login do ADM
@@ -57,9 +56,10 @@ def admin():
         )
     
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
+        # pagina_vendedor = Vendedor.query.All()
         return render_template('admin.html')
     else: 
-        return render_template('login.html') #Fazer interação de acesso negado com JS
+        return render_template('login.html')
     
 
 
@@ -68,18 +68,21 @@ def admin():
 @app.route('/formulario', methods = ['GET', 'POST'])
 def new_form():
     if request.method == 'POST':
-        vendedor = Vendedor(
+        produto = Vendedor(
             request.form['nome'],
-            request.form['preco'],
-            request.form['link'],
-            request.form['descricao']
+            request.form['descricao'],
+            request.form['imagem'],
+            request.form['preco']
+            # ,request.form['categoria']
         )
-
-    db.session.add(vendedor)
+    db.session.add(produto)
     db.session.commit()
     pagina_vendedor = Vendedor.query.All()
-    return render_template('admin.html',tabela = pagina_vendedor)
-
+    return render_template('admin.html' , tabela=pagina_vendedor)
+@app.route('/add', methods = ['POST', 'GET'])
+def add_item():
+    
+    return render_template('add.html')
 
 
 
