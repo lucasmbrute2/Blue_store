@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -13,6 +14,7 @@ body{
     font-family: 'Hahmlet', serif;
 }
 section{
+
     width:100%;
 }
 /* Corpo da página  ^*/
@@ -55,7 +57,7 @@ to{
 }
 }
 
-header:focus, header:hover{
+header:focus, header:hover{ 
 
     color: #c6e2ff;
         text-shadow:
@@ -82,7 +84,7 @@ header:focus, header:hover{
 }
 #navgation ul{
     list-style-type: none;
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
@@ -90,12 +92,12 @@ header:focus, header:hover{
 #navgation ul li{
     /* width: 70%; */
     border-radius: .3rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    color: rgb(3,64,106);
+    color: rgb(8, 44, 68); /*mudança cor*/
     background-color: #fff;
-    border: 2px solid rgb(3,64,106);
-    padding: .3rem;
+    border: 2px solid rgb(8, 44, 68); /*mudança cor*/
+    padding: .5rem; /*aumento da padding*/
     margin: .2rem .3rem;
     letter-spacing: .1rem;
     cursor: pointer;
@@ -152,6 +154,7 @@ header:focus, header:hover{
     padding: .5rem;
     border-radius: 4px;
     width: 18rem;
+    text-align: justify; /* descricão centralizada*/
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     
 }
@@ -160,9 +163,16 @@ header:focus, header:hover{
 }
 #productPainel .price{
     font-weight: 700;
+    margin: 0.5rem 0;
 }
 #productPainel img{
     width: 100%;
+    margin-top: 0.5rem;
+}
+#productPainel p{
+    line-height: 1.2rem;
+    color: rgba(3,64,106,1);
+    font-weight: 530;
 }
 #productPainel .icons{
     display: flex;
