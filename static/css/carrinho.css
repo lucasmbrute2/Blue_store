@@ -75,7 +75,7 @@ header#um div#titulo img {
  section#tabela table{
     background-color:#ffffff80;
     position: absolute;
-    width: 70%;
+    width: 70.7%;
     height: 60%;
     display: flex;
     justify-content: left;
@@ -100,4 +100,9 @@ header#um div#titulo img {
     padding-left: 1rem;
  }
  
- 
+ section hr{
+    padding-top: 4rem;
+    border-radius: 20px;
+    width: 70%;
+    margin-left: 18rem;
+ }
