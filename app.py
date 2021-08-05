@@ -1,22 +1,45 @@
 from flask import Flask, render_template, redirect, request
+from flask_sqlalchemy import SQLAlchemy
+
+
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ilzpkagm:tFfCmwORirxRZeVpvqJJ1vFd7YVWXOE6@kesavan.db.elephantsql.com/ilzpkagm'
 acesso_usuario = 'admin'
 acesso_senha = "admin"
 
-class Login:
+#Classe que recebe o usuário e senha dos donos do Site.
+class Login():
     
     def __init__(self, usuario, senha):
         self.usuario = usuario
         self.senha = senha
         
+
+
+# Classe que cria a table
+class Vendedor(db.Model):
+    id = db.Column(db.Integer, primary_key=True,autoincrement = True )
+    nome = db.Column(db.String(50), nullable= False)
+    descricao = db.Column(db.String(500), nullable =False)
+    imagem = db.Column(db.String(7000), nullable=False)
+    preco = db.Column(db.Integer, nullable = False )
+    
+    def __init__(self, nome,descricao,imagem,preco):
+        self.nome = nome
+        self.descricao = descricao
+        self.imagem = imagem
+        self.preco = preco
+
+
 # Página de Login do ADM
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/login')
+@app.route('/login')    
 def login():
     return render_template('login.html')
 
@@ -32,12 +55,33 @@ def admin():
             request.form['username'],
             request.form['password']
         )
-
+    
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
         return render_template('admin.html')
     else: 
         return render_template('login.html') #Fazer interação de acesso negado com JS
     
+
+
+# CRUD- Fazendo o CREATE
+
+@app.route('/formulario', methods = ['GET', 'POST'])
+def new_form():
+    if request.method == 'POST':
+        vendedor = Vendedor(
+            request.form['nome'],
+            request.form['preco'],
+            request.form['link'],
+            request.form['descricao']
+        )
+
+    db.session.add(vendedor)
+    db.session.commit()
+    pagina_vendedor = Vendedor.query.All()
+    return render_template('admin.html',tabela = pagina_vendedor)
+
+
+
 
 @app.route('/loja')
 def pagina_loja():
@@ -58,4 +102,5 @@ def pagina_sobre():
 
 
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)
