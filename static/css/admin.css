@@ -14,52 +14,24 @@ body{
 }
 section{
     width:100%;
-    display: grid;
-    grid-template-areas:
-     'nav nav'
-     'header header'
-      'aside article' 
-      'footer footer';
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 3fr 23fr 1fr;
 }
-nav.menu{
-    grid-area: nav;
-    width: 100%;
-    text-align: center;
-    margin: 1rem 0;
-}
-
-nav.menu a{
-    padding: .5rem 1rem;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    margin-left: 2rem;
-    border-radius: .2rem;
-    transition: all .5s ease-in-out;
-}
-
-nav.menu a:hover{
-    border:none;
-    background: rgb(148, 189, 197);
-    color: rgba(9,58,121,1);
-    padding: .8rem;
-    font-weight: 600;
-
-}
+/* Corpo da página  ^*/
 
 /* titulo com efeito neon */
-header{
+#header{
     width: 100%;
-    grid-area: header;
-    font-size: 5rem;
+    /* font-size: 5rem; */
     color:#c6e2ff;
     text-align: center;
     animation: neon .1s ease-in-out infinite alternate;
     margin-top: 2rem;
 }
-
+#header h1{ 
+    font-size:5rem;
+}
+#header p{
+    font-size: 2rem; 
+}
 @keyframes neon{
 from{
     text-shadow: 
@@ -95,40 +67,43 @@ header:focus, header:hover{
     0 0 16px rgba(30,132,242,0.92);
 
 }
-
-aside{
-    width: 100%;
+/*titulo com efeito neon*/
+/* menu lateral */
+#navgation{
     grid-area: aside;
     color: #fff;
+    position: sticky;
+    top:0;
+    z-index: 9;
     
 }
-
-aside ul{
+#navigation img{
+    width: 10%;
+}
+#navgation ul{
     list-style-type: none;
-    padding: 0;
-    margin:5rem 2rem;
-    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
-aside ul li{
-    width: 80%;
+#navgation ul li{
+    /* width: 70%; */
     border-radius: .3rem;
     font-size: 1.3rem;
     font-weight: 500;
     color: rgb(3,64,106);
     background-color: #fff;
     border: 2px solid rgb(3,64,106);
-    padding: 1rem;
-    margin: .2rem 0;
+    padding: .3rem;
+    margin: .2rem .3rem;
     letter-spacing: .1rem;
     cursor: pointer;
     z-index: 10;
     position: relative;
     transition: all .4s;
 }
-
-/* efeito de transição do background */
-aside ul li::before{
+#navgation ul li::before{/* efeito de transição do background */
     content: '';
     position:absolute;
     top:0;
@@ -139,37 +114,98 @@ aside ul li::before{
     z-index:-1;
     transition: all .4s
 }
-
-aside ul li:hover::before{
+#navgation ul .exit::before{
+    content: '';
+    position:absolute;
+    top:0;
+    left:0px;
+    width:10px;
+    height:100%;
+    background: rgb(179, 0, 0);
+    z-index:-1;
+    transition: all .4s
+}
+#navgation ul li:hover::before{
     width:100%;
 }
 
-aside ul li:hover{
-    color:#fff;
+#navgation ul li:hover{
+    color:white;
 }
+/* navegador ^ */
 
-article{
-    width: 97%;
-    grid-area: article;
+/* página dos produtos */
+#productPainel{
     display: flex;
-    margin-top: 3rem;
     flex-wrap: wrap;
-    padding: 1rem;
+    padding: 2rem;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
-div.product{
+
+#productPainel .product{
     margin: 1rem;
-    width: 20%;
+    background-color:white;
+    position: relative;
+    padding: .5rem;
+    border-radius: 4px;
+    width: 18rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    
+}
+.product:hover{
+    transform: scale(1.1);
+}
+#productPainel .price{
+    font-weight: 700;
+}
+#productPainel img{
+    width: 100%;
+}
+#productPainel .icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#productPainel .fa-edit{
+    border-radius: .3rem;
+    font-size: 1.3rem;
+    color: rgb(3,64,106);
+    background-color: #fff;
+    border: 2px solid rgb(3,64,106);
+    padding: .3rem;
+    margin: .2rem .3rem;
+    cursor: pointer;
+    transition: all .4s;
 
 }
-
-div.product img{
-    margin-left: 3rem;
-    border-radius: .2rem;
+#productPainel .fa-trash{
+    border-radius: .3rem;
+    font-size: 1.3rem;
+    color: rgb(3,64,106);
+    background-color: #fff;
+    border: 2px solid rgb(3,64,106);
+    padding: .3rem;
+    margin: .2rem .3rem;
+    cursor: pointer;
+    transition: all .4s;
 }
-
+#productPainel .fa-edit:hover{
+    background-color:rgb(3,64,106);
+    color: #fff;
+    
+}
+#productPainel .fa-trash:hover{
+    background-color:red;
+    color: #fff;
+}
+/* Footer */
 footer{
     grid-area: footer;
     border-top: 1px solid rgba(3,64,106,1);
+    width: 100%;
     
 }
 
@@ -179,3 +215,29 @@ footer p{
     font-weight: bold;
     margin-top: 1rem;
 }
+
+/* nav.menu{
+    grid-area: nav;
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+nav.menu a{
+    padding: .5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    border-radius: .2rem;
+    transition: all .5s ease-in-out;
+}
+
+nav.menu a:hover{
+    border:none;
+    background: rgb(148, 189, 197);
+    color: rgba(9,58,121,1);
+    padding: .8rem;
+    font-weight: 600;
+
+} */
