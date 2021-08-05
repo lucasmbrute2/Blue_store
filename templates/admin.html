@@ -4,32 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="style.css">
     <title>Area do Administrador</title>
 </head>
 <body>
     <section>
-        <nav>nav</nav>
-        <header>header</header>
-        <aside>aside
+        <nav class="menu">
+            <a href="">Home</a>
+            <a href="">Store</a>
+            <a href="">About us</a>
+        </nav>
+        <header>Blue Store</header>
+        <aside>
             <ul>
-                <li>Iten de menu</li>
-                <li>Iten de menu</li>
-                <li>Iten de menu</li>
-                <li>Iten de menu</li>
+                <li>Item de menu</li>
+                <li>Item de menu</li>
+                <li>Item de menu</li>
+                <li>Item de menu</li>
             </ul>
         </aside>
+        
+        
+        <form action="/formulario" method="POST">
+
+        <label for="nome">Nome do produto</label>
+        <input type="text" id ='nome' name ='nome'>
+        
+        <label for="preco">Preço</label>
+        <input type='number' id='preco' name = 'preco'>
+
+        <label for="link">Link da imagem</label>
+        <input type="text" id= 'link' name='link'>
+        
+        <label for="descricao">Descrição</label>
+        <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+        <button type="submit">Editar</button>
+    
+    
+    </form>
+        
         <article>
-            <div class="product">Produto</div>
-            <div class="product">Produto</div>
-            <div class="product">Produto</div>
-            <div class="product">Produto</div>
-            <div class="product">Produto</div>
-            <div class="product">Produto</div>
-            <div class="product">Produto</div>
-            <div class="product">Produto</div>
+                
+            <div class="product">
+                    {% for v in tabela%}
+                        <h1>{{v.nome}}</h1>
+                        <p>{{v.preco}}</p>
+                        <p>{{v.descricao}}</p>
+                        
+                        <img src="{{p.descricao}}" alt="">
+                
+                    {% endfor %}
+                </div>
+            <a href="/formulario" method = 'POST'>Enviar</a>
+                
+                
+                <!-- <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
+                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div> -->
+          
+            </form>
+    
         </article>
-        <footer>footer</footer>
+        <footer>
+            <p>&copy;Blue Store - 2021</p>
+        </footer>
     </section>
 </body>
 </html>
