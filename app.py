@@ -23,14 +23,12 @@ class Vendedor(db.Model):
     descricao = db.Column(db.String(500), nullable =False)
     imagem = db.Column(db.String(7000), nullable=False)
     preco = db.Column(db.Float(40), nullable = False )
-    # categoria = db.Column(db.String(20), nullable = False)
     
     def __init__(self, nome,descricao,imagem,preco):
         self.nome = nome
         self.descricao = descricao
         self.imagem = imagem
         self.preco = preco
-        # self.categoria = categoria
 
 
 # Página de Login do ADM
@@ -56,15 +54,11 @@ def admin():
         )
     
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
-        # pagina_vendedor = Vendedor.query.All()
-        return render_template('admin.html')
+        produtos = Vendedor.query.all()
+        return render_template('admin.html', )
     else: 
         return render_template('login.html')
-    
-
-
 # CRUD- Fazendo o CREATE
-
 @app.route('/formulario', methods = ['GET', 'POST'])
 def new_form():
     if request.method == 'POST':
@@ -73,12 +67,11 @@ def new_form():
             request.form['descricao'],
             request.form['imagem'],
             request.form['preco']
-            # ,request.form['categoria']
         )
     db.session.add(produto)
     db.session.commit()
-    pagina_vendedor = Vendedor.query.All()
-    return render_template('admin.html' , tabela=pagina_vendedor)
+    produtos = Vendedor.query.all()
+    return render_template('admin.html' , tabela=produtos)
 @app.route('/add', methods = ['POST', 'GET'])
 def add_item():
     
@@ -93,16 +86,6 @@ def pagina_loja():
 @app.route('/about')
 def pagina_sobre():
     return render_template('sobre.html')
-
-
-
-
-
-
-
-#testando essa bagaça!!!!!!
-
-
 
 if __name__ == '__main__':
     db.create_all()
