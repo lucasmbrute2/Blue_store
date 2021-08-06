@@ -23,14 +23,11 @@ class Vendedor(db.Model):
     descricao = db.Column(db.String(500), nullable =False)
     imagem = db.Column(db.String(7000), nullable=False)
     preco = db.Column(db.Float(40), nullable = False )
-    
     def __init__(self, nome,descricao,imagem,preco):
         self.nome = nome
         self.descricao = descricao
         self.imagem = imagem
         self.preco = preco
-
-
 # Página de Login do ADM
 @app.route('/')
 def index():
@@ -54,8 +51,8 @@ def admin():
         )
     
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
-        produtos = Vendedor.query.all()
-        return render_template('admin.html', )
+        tabela = Vendedor.query.all()
+        return render_template('admin.html', tabela=tabela)
     else: 
         return render_template('login.html')
 # CRUD- Fazendo o CREATE
@@ -70,14 +67,10 @@ def new_form():
         )
     db.session.add(produto)
     db.session.commit()
-    produtos = Vendedor.query.all()
-    return render_template('admin.html' , tabela=produtos)
+    return redirect('/admin')
 @app.route('/add', methods = ['POST', 'GET'])
 def add_item():
-    
     return render_template('add.html')
-
-
 
 @app.route('/loja')
 def pagina_loja():
