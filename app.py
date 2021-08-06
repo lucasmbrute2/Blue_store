@@ -51,8 +51,8 @@ def admin():
         )
     
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
-        tabela = Vendedor.query.all()
-        return render_template('admin.html', tabela=tabela)
+        tabelas = Vendedor.query.all()
+        return render_template('admin.html', tabelas=tabelas, tabela='') 
     else: 
         return render_template('login.html')
 # CRUD- Fazendo o CREATE
@@ -67,7 +67,9 @@ def new_form():
         )
     db.session.add(produto)
     db.session.commit()
-    return redirect('/admin')
+    tabelas = Vendedor.query.all()
+    return render_template('/admin', tabelas=tabelas, tabela='')
+
 @app.route('/add', methods = ['POST', 'GET'])
 def add_item():
     return render_template('add.html')
@@ -79,6 +81,19 @@ def pagina_loja():
 @app.route('/about')
 def pagina_sobre():
     return render_template('sobre.html')
+
+@app.route('/edit/<id>')
+def edita_item(id):
+    tabela = Vendedor.query.get(id)
+    tabelas = Vendedor.query.all()
+    if request.method == "POST":
+        tabela.nome = request.form['nome']
+        tabela.descricao = request.form['descricao']
+        tabela.imagem = request.form['imagem']
+        tabela.preco = request.form['preco']
+        db.session.commit() 
+        return redirect('/admin')
+    return render_template('admin.html', tabelas=tabelas, tabela=tabela) 
 
 if __name__ == '__main__':
     db.create_all()

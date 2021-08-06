@@ -27,36 +27,66 @@
         </nav>
 
         <section>
+            {% if tabela == ''%}
             <form action="/formulario" method="POST">
+                <h1>Cadastre um novo produto</h1>
+            {%else%}
+            <form action="/edit/{{projeto.id}}" method="POST">
+                <h1>Modifique um produto</h1>
+            {%endif%}
                 <label for="nome">Nome do produto</label>
-                <input type="text" id ='nome' name ='nome'>
+                <input type="text" id ='nome' name ='nome' value ='{{tabela.nome}}'>
             
                 <label for="imagem">Link da imagem</label>
-                <input type="text" id= 'imagem' name='imagem'>
+                <input type="text" id= 'imagem' name='imagem' value ='{{tabela.imagem}}'>
                 
                 <label for="descricao">Descrição</label>
-                <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                <textarea name="descricao" id="descricao" cols="30" rows="10">{{tabela.descricao}}</textarea>
             
                 <label for="preco">Preço</label>
-                <input type='number' id='preco' name = 'preco'>
-            
-                <button type="submit">Adicionar</button>
+                <input type='number' id='preco' name = 'preco' value = '{{preco}}'>
+                
+                <button type="submit">
+                    {%if tabela == ''%}
+                    Adicionar
+                    {%else%}
+                    Atualizar
+                    {%endif%}
+                </button>
             </form>
         </section>
         <section>
-            <div class="product">
-                {% for v in tabela%}
-                <h2>{{v.nome}}</h2>
-                <img src="{{v.link}}" alt="">
-                <p>{{v.descricao}}</p>
-                <p class="price">{{v.preco}}</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-                {% endfor %}
-
-            </div>
+            {% if tabela == '' %}
+            <article id="lista">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Imagem</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        {% for p in tabelas %}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nome}}</td>
+                            <td>{{p.descricao}}</td>
+                            <td>{{p.imagem}}</td>
+                            <td>{{p.preco}}</td>
+                            <td>
+                                <a href="/edit/{{p.id}}">Editar</a>
+                                <a href="/{{p.id}}">Apagar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+            {% endif %}
         </section>
         <footer>
             <p>&copy;Blue Store - 2021</p>
