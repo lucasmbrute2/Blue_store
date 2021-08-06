@@ -23,16 +23,11 @@ class Vendedor(db.Model):
     descricao = db.Column(db.String(500), nullable =False)
     imagem = db.Column(db.String(7000), nullable=False)
     preco = db.Column(db.Float(40), nullable = False )
-    # categoria = db.Column(db.String(20), nullable = False)
-    
     def __init__(self, nome,descricao,imagem,preco):
         self.nome = nome
         self.descricao = descricao
         self.imagem = imagem
         self.preco = preco
-        # self.categoria = categoria
-
-
 # Página de Login do ADM
 @app.route('/')
 def index():
@@ -56,15 +51,11 @@ def admin():
         )
     
     if login.usuario and login.senha == acesso_usuario and acesso_senha:
-        # pagina_vendedor = Vendedor.query.All()
-        return render_template('admin.html')
+        tabelas = Vendedor.query.all()
+        return render_template('admin.html', tabelas=tabelas, tabela='') 
     else: 
         return render_template('login.html')
-    
-
-
 # CRUD- Fazendo o CREATE
-
 @app.route('/formulario', methods = ['GET', 'POST'])
 def new_form():
     if request.method == 'POST':
@@ -73,18 +64,15 @@ def new_form():
             request.form['descricao'],
             request.form['imagem'],
             request.form['preco']
-            # ,request.form['categoria']
         )
     db.session.add(produto)
     db.session.commit()
-    pagina_vendedor = Vendedor.query.All()
-    return render_template('admin.html' , tabela=pagina_vendedor)
+    tabelas = Vendedor.query.all()
+    return render_template('/admin', tabelas=tabelas, tabela='')
+
 @app.route('/add', methods = ['POST', 'GET'])
 def add_item():
-    
     return render_template('add.html')
-
-
 
 @app.route('/loja')
 def pagina_loja():
@@ -94,15 +82,18 @@ def pagina_loja():
 def pagina_sobre():
     return render_template('sobre.html')
 
-
-
-
-
-
-
-#testando essa bagaça!!!!!!
-
-
+@app.route('/edit/<id>')
+def edita_item(id):
+    tabela = Vendedor.query.get(id)
+    tabelas = Vendedor.query.all()
+    if request.method == "POST":
+        tabela.nome = request.form['nome']
+        tabela.descricao = request.form['descricao']
+        tabela.imagem = request.form['imagem']
+        tabela.preco = request.form['preco']
+        db.session.commit() 
+        return redirect('/admin')
+    return render_template('admin.html', tabelas=tabelas, tabela=tabela) 
 
 if __name__ == '__main__':
     db.create_all()
