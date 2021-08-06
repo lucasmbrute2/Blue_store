@@ -118,8 +118,7 @@ section{
     font-weight: 700%;
     font-size: medium;
     text-align: center;
-
-}
+ }
 
 .colaboradores p{
     font-weight: 400%;
@@ -129,7 +128,10 @@ section{
 .colaboradores div{
     max-width: 20vw;
     padding: 3rem;
-    
+    transition: all .4s ease-out; 
+}
+.colaboradores div:hover{
+    transform: scale(1.1);
 }
 
 .colaboradores img{
@@ -155,9 +157,10 @@ section{
    transition: all .4s ease-out;   
 }
 .colaboradores div.icons a i:hover{
-    transform: scale(1.2);   
+    transform: scale(1.2); 
+      
 }
-transform: scale(1.2);
+
     
 /* .imagem {
     position: relative;
