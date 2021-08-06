@@ -10,6 +10,7 @@ body{
     background-repeat: no-repeat;
     background-clip: padding-box;
     font-family: 'Hahmlet', serif;
+    
 }
 #cabecalho{
     width: 100%;
@@ -25,12 +26,11 @@ body{
     list-style: none;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 #menu ul li{
-    padding: .75rem;
+    padding: auto;
     width: auto;
-   
-
 }
 #menu ul li a{
     text-decoration: none;
@@ -43,11 +43,11 @@ body{
     transition: all .5s ease-in-out;
 }
 /*Quando passar o mouse faça*/
-nav.menu a:hover{
+#menu a:hover{
     border:none;
-    background: white;
+    background:2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     color: rgba(9,58,121,1);
-    padding: .8rem;
+    padding: auto;
     font-weight: 600;
 }
 
@@ -82,22 +82,8 @@ nav.menu a:hover{
 }
 }
 
-header:focus, header:hover{
-
-    color: #c6e2ff;
-        text-shadow:
-    0 0 2px rgba(202,228,225,0.92),
-    0 0 10px rgba(202,228,225,0.34),
-    0 0 4px rgba(30,132,242,0.52),
-    0 0 7px rgba(30,132,242,0.92),
-    0 0 11px rgba(30,132,242,0.78),
-    0 0 16px rgba(30,132,242,0.92);
-
-}
-    
-
-section{
-     margin: 0rem, .5rem;
+#colab{
+    margin: auto;
     
 }
 .colaboradores{
@@ -105,10 +91,11 @@ section{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction:row;
     max-width: 100%;
     color: white;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .colaboradores h2{
@@ -143,6 +130,7 @@ section{
 .colaboradores div.icons{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     
 }
 .colaboradores div.icons a{
