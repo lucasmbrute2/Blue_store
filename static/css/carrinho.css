@@ -72,7 +72,7 @@ header#um div#titulo img {
     margin-left: 5rem;
  }
 
- section#tabela table{
+ .tabela table{
     background-color:#ffffff80;
     position: absolute;
     width: 70.7%;
@@ -86,23 +86,33 @@ header#um div#titulo img {
 
  }  
 
- section#tabela table tr{
+ .tabela table#pr tr{
     font-size: 2rem;
     padding-left: 1rem;
     
  }
 
- section#tabela table td#preço{
-    font-size: 2rem;
+ .tabela table#pr td#preço{
+ font-size: 2rem;
     padding-left: 65rem;
  }
- section#tabela table td#produtos{
+ .tabela table#pr td#produtos{
     padding-left: 1rem;
  }
  
- section hr{
+ .tabela hr{
     padding-top: 4rem;
     border-radius: 20px;
     width: 70%;
     margin-left: 18rem;
+ }
+
+ .tabela button{
+    background-color: #18286950;
+    font-size: 2rem;
+    position:fixed;
+    margin-left: 93rem;
+    margin-top: 27rem;
+    border-radius: 20px;
+    padding: 0.5rem;
  }
