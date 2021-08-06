@@ -19,14 +19,14 @@
         </header>
         <nav id="navgation">
             <ul>
-                <li><a href="/add">Adicionar produto</a></li>
+                <li id="add">Adicionar um item</li>
                 <li>Ir para loja</li>
                 <li>Sobre nós</li>
                 <li class="exit">Sair</li>
             </ul>
         </nav>
 
-        <section>
+        <article id="cadastro">
             {% if tabela == ''%}
             <form action="/formulario" method="POST">
                 <h1>Cadastre um novo produto</h1>
@@ -34,16 +34,16 @@
             <form action="/edit/{{projeto.id}}" method="POST">
                 <h1>Modifique um produto</h1>
             {%endif%}
-                <label for="nome">Nome do produto</label>
+                <label for="nome">Nome do produto:</label>
                 <input type="text" id ='nome' name ='nome' value ='{{tabela.nome}}'>
             
-                <label for="imagem">Link da imagem</label>
+                <label for="imagem">Link da imagem:</label>
                 <input type="text" id= 'imagem' name='imagem' value ='{{tabela.imagem}}'>
                 
-                <label for="descricao">Descrição</label>
-                <textarea name="descricao" id="descricao" cols="30" rows="10">{{tabela.descricao}}</textarea>
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" id="descricao" cols="30" rows="6">{{tabela.descricao}}</textarea>
             
-                <label for="preco">Preço</label>
+                <label for="preco">Preço:</label>
                 <input type='number' id='preco' name = 'preco' value = '{{preco}}'>
                 
                 <button type="submit">
@@ -53,9 +53,12 @@
                     Atualizar
                     {%endif%}
                 </button>
+                <button  id="cancel">
+                    Cancelar
+                </button>
             </form>
-        </section>
-        <section>
+        </article>
+        <article id="table">
             {% if tabela == '' %}
             <article id="lista">
                 <table>
@@ -66,6 +69,7 @@
                             <th>Descrição</th>
                             <th>Imagem</th>
                             <th>Preço</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
     
@@ -87,11 +91,12 @@
                 </table>
             </article>
             {% endif %}
-        </section>
+        </article>
         <footer>
             <p>&copy;Blue Store - 2021</p>
         </footer>
     </section>
+    <script src="../static/js/admin.js"></script>
 </body>
 
 </html>
