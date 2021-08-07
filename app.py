@@ -69,7 +69,7 @@ def admin():
         flash('Faça o login antes de entrar nessa rota!')
         return redirect('/login') 
     tabelas = Vendedor.query.all()
-    return render_template('admin.html', tabelas=tabelas, tabela='') 
+    return render_template('admin.html', tabelas=tabelas, produto='') 
   
 @app.route('/logout')
 def volta_pagina():
@@ -96,28 +96,28 @@ def new_form():
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edita_item(id):
-    tabela = Vendedor.query.get(id)
+    produto = Vendedor.query.get(id)
     tabelas = Vendedor.query.all()
     if request.method == "POST":
-        tabela.nome = request.form['nome']
-        tabela.descricao = request.form['descricao']
-        tabela.imagem = request.form['imagem']
-        tabela.preco = request.form['preco']
+        produto.nome = request.form['nome']
+        produto.descricao = request.form['descricao']
+        produto.imagem = request.form['imagem']
+        produto.preco = request.form['preco']
         db.session.commit() 
         return redirect('/admin')
-    return render_template('admin.html', tabelas=tabelas, tabela=tabela) 
+    return render_template('admin.html', tabelas=tabelas, produto=produto) 
 
 
 @app.route('/<id>')
 def idselector(id):
-    tabela = Vendedor.query.get(id)
-    return render_template('admin.html', tabela=tabela)
+    produto = Vendedor.query.get(id)
+    return render_template('admin.html', produto=produto)
 
 
 @app.route('/delete/<id>')
 def delete(id):
-    tabela = Vendedor.query.get(id)
-    db.session.delete(tabela)
+    produto = Vendedor.query.get(id)
+    db.session.delete(produto)
     db.session.commit()
     return redirect('/admin')
 
