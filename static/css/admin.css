@@ -137,7 +137,6 @@ header:focus, header:hover{
 #cadastro{
     display:none;
     flex-wrap: wrap;
-
     padding: 2rem;
     justify-content: center;
     align-items: center;
