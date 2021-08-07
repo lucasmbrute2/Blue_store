@@ -19,119 +19,101 @@
         </header>
         <nav id="navgation">
             <ul>
-                <li>Adicionar produto</li>
-                <li>Ir para loja</li>
-                <li>Sobre nós</li>
-                <li class="exit">Sair</li>
+                <li id="add">Adicionar um item</li>
+                <li><a href="/loja">Ir para loja</a> </li>
+                <li><a href="/about">Sobre nós</a></li>
+                <li class="exit"><a href="/logout">Sair</a></li>
             </ul>
         </nav>
-        <article id="productPainel">
-            <div class="product">
-                <h2>Smartphone</h2><!--Div modificada-->
-                <img src="../static/img/home/celular.jpg">
-                <p>Smartphone Mockup. Tela 6,5 polegadas, 4GB de memória RAM e resolução de 16MP. </p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 1900,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Notebook</h2>
-                <img src="../static/img/home/notebook.jpg">
-                <p>Notebook Mockup. Tela de 15,5 polegadas, Windows 10, SSD de 256GB e 8GB de memória RAM.</p>
-                <p>Categoria: Informática</p>
-                <p class="price">R$ 3700,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Tablet</h2>
-                <img src="../static/img/home/tablet.jpg">
-                <p>Tablet Mockup. Tela de 10,4 polegadas, 64GB de armazenamento interno, Android 10.</p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 1650,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Smartwatch</h2>
-                <img src="../static/img/home/smartwatch.jpg">
-                <p>Smartchwatch Mockup. Bluetooth, tela sensivel ao toque e bateria duradoura.</p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 620,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Carregador</h2>
-                <img src="../static/img/home/carregador_portatil.jpg">
-                <p>Carregador portátil da Mockup. 10000 MAH, sem fio, leve, somente na cor branca.</p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 350,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Headphone</h2>
-                <img src="../static/img/home/headphone.jpg">
-                <p>Headphone. Com isolamento acústico, Bluetooth e almofadas auriculares. </p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 720,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Produto</h2>
-                <img src="../static/img/home/carrinho.gif">
-                <p>Descrição do produto não precisa ser tão grande beleza ?</p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 500,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Produto</h2>
-                <img src="../static/img/home/carrinho.gif">
-                <p>Descrição do produto não precisa ser tão grande beleza ?</p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 500,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
-            <div class="product">
-                <h2>Produto</h2>
-                <img src="../static/img/home/carrinho.gif">
-                <p>Descrição do produto não precisa ser tão grande beleza ?</p>
-                <p>Categoria: Eletrônicos</p>
-                <p class="price">R$ 500,00</p>
-                <div class="icons">
-                    <i class="fas fa-edit"> Editar</i>
-                    <i class="fas fa-trash"> Remover</i>
-                </div>
-            </div>
+
+        <article id="cadastro">
+            {% if tabela == ''%}
+            <form action="/new" method="POST">
+                <h1>Cadastre um novo produto</h1>
+            {%else%}
+            <form action="/edit/{{tabela.id}}" method="POST">
+                <h1>Modifique um produto</h1>
+            {%endif%}
+                <label for="nome">Nome do produto:</label>
+                <input type="text" id ='nome' name ='nome' value ='{{tabela.nome}}'>
+            
+                <label for="imagem">Link da imagem:</label>
+                <input type="text" id= 'imagem' name='imagem' value ='{{tabela.imagem}}'>
+                
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" id="descricao" cols="30" rows="6">{{tabela.descricao}}</textarea>
+            
+                <label for="preco">Preço:</label>
+                <input type='number' id='preco' name = 'preco' value = '{{tabela.preco}}'>
+                
+                <button type="submit">
+                    {%if tabela == ''%}
+                    Adicionar
+                    {%else%}
+                    Atualizar
+                    {%endif%}
+                </button>
+                <button id="cancel" type="button">
+                    Cancelar
+                </button>
+            </form>
+            
         </article>
+        <article id="table">
+            {% if tabela == '' %}
+            <article id="lista">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Imagem</th>
+                            <th>Preço</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        {% for p in tabelas %}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nome}}</td>
+                            <td>{{p.descricao}}</td>
+                            <td>{{p.imagem}}</td>
+                            <td>{{p.preco}}</td>
+                            <td>
+                                <a id="edit" href="/edit/{{p.id}}">Editar</a>
+                                <a href="/{{p.id}}">Apagar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+            {% endif %}
+        </article>
+        {% if tabela != '' %}
+        <section id="modal">
+            <div class="card">
+                <a href="/admin" id="fechar"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <h2>Confirmação</h2>
+                <hr>
+                <p>Deseja realmente apagar o projeto: {{tabela.nome}} </p>
+                <div id="btns">
+                    <a class="btn-cancelar" id="close" href="/admin">Cancelar</a>
+                    <a class="btn-apagar" href="/delete/{{tabela.id}}">Apagar</a>
+                </div>
+            </div>
+        {% endif %}    
+        </section>
+
         
         <footer>
             <p>&copy;Blue Store - 2021</p>
         </footer>
     </section>
-    <!-- tudo ok? -->
+    <script src="../static/js/admin.js"></script>
 </body>
 
 </html>

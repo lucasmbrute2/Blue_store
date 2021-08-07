@@ -135,81 +135,117 @@ header:focus, header:hover{
     color:white;
 }
 /* navegador ^ */
-
-/* página dos produtos */
-#productPainel{
-    display: flex;
+/* Tela de cadastro */
+#cadastro{
+    display:none;
     flex-wrap: wrap;
     padding: 2rem;
-    overflow: auto;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+}
+form{
+    padding: 3rem;
+    background-color: rgba(0,212,255,.1);
+    width: 50%;
+    position: relative;
+    box-shadow: rgba(149, 157, 165, .5) 0px 8px 24px;
+    border-radius: 1rem;
 }
 
-#productPainel .product{
-    margin: 1rem;
-    background-color:white;
-    position: relative;
-    padding: .5rem;
-    border-radius: 4px;
-    width: 18rem;
-    text-align: justify; /* descricão centralizada*/
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    
+form h1{
+    font-size: 2rem;
+    color:#c6e2ff;
+    text-align: center;
+    animation: neon .1s ease-in-out infinite alternate;
+    margin-bottom: 1rem;
 }
-.product:hover{
-    transform: scale(1.1);
-}
-#productPainel .price{
-    font-weight: 700;
-    margin: 0.5rem 0;
-}
-#productPainel img{
+
+form input, textarea{
     width: 100%;
-    margin-top: 0.5rem;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: none;
+    background: rgba(0,212,255,.1);
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    color:white;
 }
-#productPainel p{
-    line-height: 1.2rem;
-    color: rgba(3,64,106,1);
-    font-weight: 530;
+
+form label {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #c6e2ff;
+    font-weight: 700;
 }
-#productPainel .icons{
+
+form button {
+    margin-top: 1.2rem;
+    width: 90%;
+    height: 90%;
+    justify-self: center;
+    background-color: rgba(0,212,255,1);
+    border-radius: 12px;
+    color: #575A89;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;  
+}
+
+form button:hover {
+    background-color: #0066ff;
+    color: #fff;
+}
+/* lista de itens */
+#table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#lista table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 3rem;
+    background-color: rgba(0,212,255,.1);
+    width: 65%;
+    box-shadow: rgba(149, 157, 165, .5) 0px 8px 24px;
+    border-radius: 1rem;
+
+}
+#lista table th, td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#lista table td {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+#lista table a {
+    padding: 1rem;
+    color: #0066ff;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#lista table a:hover{
+    color: #aacbfb;
+}
+
+#edit {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-#productPainel .fa-edit{
-    border-radius: .3rem;
-    font-size: 1.3rem;
-    color: rgb(3,64,106);
-    background-color: #fff;
-    border: 2px solid rgb(3,64,106);
-    padding: .3rem;
-    margin: .2rem .3rem;
-    cursor: pointer;
-    transition: all .4s;
-
-}
-#productPainel .fa-trash{
-    border-radius: .3rem;
-    font-size: 1.3rem;
-    color: rgb(3,64,106);
-    background-color: #fff;
-    border: 2px solid rgb(3,64,106);
-    padding: .3rem;
-    margin: .2rem .3rem;
-    cursor: pointer;
-    transition: all .4s;
-}
-#productPainel .fa-edit:hover{
-    background-color:rgb(3,64,106);
-    color: #fff;
-    
-}
-#productPainel .fa-trash:hover{
-    background-color:red;
-    color: #fff;
+    padding: 6rem;
 }
 /* Footer */
 footer{
