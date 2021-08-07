@@ -15,14 +15,28 @@
         <header id="header">
             <h1>Blue Store</h1>
             <p>Painel do Administrador</p>
-          
+
         </header>
         <nav id="navgation">
-            <ul>
-                <li id="add">Adicionar um item</li>
-                <li><a href="/loja">Ir para loja</a> </li>
-                <li><a href="/about">Sobre nós</a></li>
-                <li class="exit"><a href="/logout">Sair</a></li>
+            <ul class="menu">
+                
+                <li class="item" id="add">
+                    <a class="link" href=""><i class="fa fa-plus-circle" aria-hidden="true"></i><span>Adicionar
+                        item</span></a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/loja"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span>Loja</span></a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/about"><i class="fa fa-users" aria-hidden="true"></i><span>Sobre nós</span></a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Sair</span></a>
+                </li>
+
             </ul>
         </nav>
 
@@ -30,34 +44,34 @@
             {% if tabela == ''%}
             <form action="/new" method="POST">
                 <h1>Cadastre um novo produto</h1>
-            {%else%}
-            <form action="/edit/{{tabela.id}}" method="POST">
-                <h1>Modifique um produto</h1>
-            {%endif%}
-                <label for="nome">Nome do produto:</label>
-                <input type="text" id ='nome' name ='nome' value ='{{tabela.nome}}'>
-            
-                <label for="imagem">Link da imagem:</label>
-                <input type="text" id= 'imagem' name='imagem' value ='{{tabela.imagem}}'>
-                
-                <label for="descricao">Descrição:</label>
-                <textarea name="descricao" id="descricao" cols="30" rows="6">{{tabela.descricao}}</textarea>
-            
-                <label for="preco">Preço:</label>
-                <input type='number' id='preco' name = 'preco' value = '{{tabela.preco}}'>
-                
-                <button type="submit">
-                    {%if tabela == ''%}
-                    Adicionar
-                    {%else%}
-                    Atualizar
+                {%else%}
+                <form action="/edit/{{tabela.id}}" method="POST">
+                    <h1>Modifique um produto</h1>
                     {%endif%}
-                </button>
-                <button id="cancel" type="button">
-                    Cancelar
-                </button>
-            </form>
-            
+                    <label for="nome">Nome do produto:</label>
+                    <input type="text" id='nome' name='nome' value='{{tabela.nome}}'>
+
+                    <label for="imagem">Link da imagem:</label>
+                    <input type="text" id='imagem' name='imagem' value='{{tabela.imagem}}'>
+
+                    <label for="descricao">Descrição:</label>
+                    <textarea name="descricao" id="descricao" cols="30" rows="6">{{tabela.descricao}}</textarea>
+
+                    <label for="preco">Preço:</label>
+                    <input type='number' id='preco' name='preco' value='{{tabela.preco}}'>
+
+                    <button type="submit">
+                        {%if tabela == ''%}
+                        Adicionar
+                        {%else%}
+                        Atualizar
+                        {%endif%}
+                    </button>
+                    <button id="cancel" type="button">
+                        Cancelar
+                    </button>
+                </form>
+
         </article>
         <article id="table">
             {% if tabela == '' %}
@@ -73,7 +87,7 @@
                             <th>Opções</th>
                         </tr>
                     </thead>
-    
+
                     <tbody>
                         {% for p in tabelas %}
                         <tr>
@@ -105,10 +119,10 @@
                     <a class="btn-apagar" href="/delete/{{tabela.id}}">Apagar</a>
                 </div>
             </div>
-        {% endif %}    
+            {% endif %}
         </section>
 
-        
+
         <footer>
             <p>&copy;Blue Store - 2021</p>
         </footer>
