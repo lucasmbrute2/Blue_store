@@ -94,6 +94,7 @@ header:focus, header:hover{
     list-style: none;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
 }
 
 #navgation .menu .item{
@@ -129,7 +130,7 @@ header:focus, header:hover{
     position: absolute;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     top: -20%;
     opacity: 1;
     transition: ease .4s; 
@@ -142,7 +143,7 @@ header:focus, header:hover{
     justify-content: center;
     top: 60%; /*o ícone mantém-se mais perto da borda inferior*/
     transform: translateY(-50%);
-    width: 100%; 
+    width: 80%; 
     font-size: 1.8rem;
     transition: ease .4s;
 }
