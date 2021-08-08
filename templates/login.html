@@ -11,22 +11,13 @@
 </head>
 
 <body>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class=flashes>
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
     <section>
         <div id="loginCard">
             <div class="loginIcon">
                 <img src="../static/img/home/avatar.svg" alt="avatar icon">
                 <h2>Login</h2>
             </div>
-            <form action="/autenticar" class="loginForm" method="POST">
+            <form action="/auth" class="loginForm" method="POST">
                 <i class="fas fa-user-friends">
                     <input name='username' id="username" type="text" placeholder="Usuário" required>
                 </i>

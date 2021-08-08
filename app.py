@@ -11,6 +11,11 @@ acesso_usuario = 'admin'
 acesso_senha = 'admin'
 app.secret_key = 'store'
 
+#Classe que recebe o usuário e senha dos donos do Site.
+class Login():
+    def __init__(self, usuario, senha):
+        self.usuario = usuario
+        self.senha = senha
 # Classe que cria a table
 class Vendedor(db.Model):
     id = db.Column(db.Integer, primary_key=True,autoincrement = True )
@@ -39,38 +44,37 @@ def login():
     session['usuario_logado'] = None
     return render_template('login.html')
 # aqui acabam as rotas principais
-@app.route('/new_item')
-def item():
-    return render_template('new_item.html',produto ='')
 
+# 
 
+# Rotas de autentição
+@app.route('/auth', methods = ['GET', 'POST'])
+def auth():
+    if request.method == 'POST':
+            login = Login(
+                request.form['username'],
+                request.form['password']
+            )
+    if login.usuario and login.senha == acesso_usuario and acesso_senha:
+        session['usuario_logado'] = 'admin'
+        flash('login efetuado')
+        return redirect('/admin')
+    else:
+        flash('Erro no login, tente novamente!')
+        return redirect('/login') 
 
 @app.route('/voltar')
 def home():
     return redirect('/')
 
-
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
-    # if 'usuario_logado' not in session or session['usuario_logado'] == None:
-    #     flash('Faça o login antes de entrar nessa rota!')
-    #     return redirect('/login') 
+    if 'usuario_logado' not in session or session['usuario_logado'] == None:
+        flash('Faça o login antes de entrar nessa rota!')
+        return redirect('/login') 
     tabelas = Vendedor.query.all()
     return render_template('admin.html', tabelas=tabelas, produto='') 
-    
-# Rotas de autentição
-@app.route('/autenticar', methods=['GET', 'POST'])
-def auth_login():
-    if request.method =='POST' and request.form['password'] == 'admin':
-        session['user_logado'] = 'logado'
-        flash('Login feito com sucesso!')
-        return redirect('/admin')
-    else:
-        flash('Usuário ou senha inválida, digite novamente.')
-        return render_template('login.html')
-
-
-
+  
 @app.route('/logout')
 def volta_pagina():
     session['usuario_logado'] = None
@@ -82,7 +86,6 @@ def volta_pagina():
 # CRUD- Fazendo o CREATE
 @app.route('/new', methods = ['GET', 'POST'])
 def new_form():
-
     if request.method == 'POST':
         produto = Vendedor(
             request.form['nome'],
@@ -92,9 +95,8 @@ def new_form():
         )
         db.session.add(produto)
         db.session.commit()
-        return redirect('/admin')
-
-#CRUD -Fazendo o EDIT
+        tabelas = Vendedor.query.all()
+        return render_template('/admin.html', tabelas=tabelas, tabela='')
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edita_item(id):
@@ -112,8 +114,8 @@ def edita_item(id):
 
 @app.route('/<id>')
 def idselector(id):
-    produto_del = Vendedor.query.get(id)
-    return render_template('admin.html', produto_del=produto_del, produto ='')
+    produto = Vendedor.query.get(id)
+    return render_template('admin.html', produto=produto)
 
 
 @app.route('/delete/<id>')
