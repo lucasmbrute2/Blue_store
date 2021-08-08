@@ -62,10 +62,10 @@ def auth():
     else:
         flash('Erro no login, tente novamente!')
         return redirect('/login') 
-
 @app.route('/voltar')
 def home():
     return redirect('/')
+
 
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
@@ -114,8 +114,8 @@ def edita_item(id):
 
 @app.route('/<id>')
 def idselector(id):
-    produto = Vendedor.query.get(id)
-    return render_template('admin.html', produto=produto)
+    produto_del = Vendedor.query.get(id)
+    return render_template('admin.html', produto_del=produto_del, produto ='')
 
 
 @app.route('/delete/<id>')
