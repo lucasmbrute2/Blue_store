@@ -39,6 +39,10 @@ def login():
     session['usuario_logado'] = None
     return render_template('login.html')
 # aqui acabam as rotas principais
+@app.route('/new_item')
+def item():
+    return render_template('new_item.html',produto ='')
+
 
 
 @app.route('/voltar')
@@ -53,7 +57,7 @@ def admin():
     #     return redirect('/login') 
     tabelas = Vendedor.query.all()
     return render_template('admin.html', tabelas=tabelas, produto='') 
-
+    
 # Rotas de autentição
 @app.route('/autenticar', methods=['GET', 'POST'])
 def auth_login():
@@ -78,6 +82,7 @@ def volta_pagina():
 # CRUD- Fazendo o CREATE
 @app.route('/new', methods = ['GET', 'POST'])
 def new_form():
+
     if request.method == 'POST':
         produto = Vendedor(
             request.form['nome'],
@@ -85,10 +90,11 @@ def new_form():
             request.form['imagem'],
             request.form['preco']
         )
-    db.session.add(produto)
-    db.session.commit()
-    tabelas = Vendedor.query.all()
-    return render_template('/admin.html', tabelas=tabelas, tabela='')
+        db.session.add(produto)
+        db.session.commit()
+        return redirect('/admin')
+
+#CRUD -Fazendo o EDIT
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edita_item(id):
