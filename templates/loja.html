@@ -8,19 +8,18 @@
 </head>
 <body>
     <article> 
+        {% for produto in tabela %}
         <div class="product">
-            {% for v in tabela%}
-            <h2>{{v.nome}}</h2>
+            <h2>{{produto.nome}}</h2>
             <img src="{{v.link}}" alt="">
-            <p>{{v.descricao}}</p>
-            <p class="price">{{v.preco}}</p>
+            <p>{{produto.descricao}}</p>
+            <p class="price">{{produto.preco}}</p>
             <div class="icons">
                 <i class="fas fa-edit"> Editar</i>
                 <i class="fas fa-trash"> Remover</i>
             </div>
-            {% endfor %}
-
         </div>
+        {% endfor %}
     </article>
 </body>
 </html>
