@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    background: rgb(3,64,106);
+    background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Hahmlet', serif;
+}
+
+nav{
+    font-weight: 500;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-top: 4rem;
+ }
+
+ nav ul{
+    list-style: none;
+    display: flex;
+    font-size: 1vw;
+    align-items: center;
+    font-weight: bold;
+ }
+ 
+ nav ul h2{  
+     color: white;
+     margin-right: 16rem;
+     text-shadow: 0 0 0.2em rgb(216, 211, 211), 0 0 0.2em rgb(233, 226, 226);
+ }
+
+ nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 3rem;
+ }
+
+ header{
+   justify-content: center;
+ }
+
+ 
+ header#um div#titulo{
+    background-color: #18286950;
+    color: white;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-left: 18rem;
+    margin-top: 5rem;
+    border-radius: 20px;
+ }
+
+header#um div#titulo img {
+    width: 70px;
+    height: 70px;
+    margin-top: 1rem;
+    margin-left: 5rem;
+ }
+
+ .tabela table{
+    background-color:#ffffff80;
+    position: absolute;
+    width: 70%;
+    height: 60%;
+    display: flex;
+    justify-content: left;
+    margin-left: 18rem;
+    border-radius: 20px;
+    list-style: none;
+ }  
+
+ .tabela table#pr tr{
+    font-size: 2rem;
+    padding-left: 1rem;
+    
+ }
+
+ .tabela table#pr td#preço{
+    font-size: 2rem;
+    padding-left: 65rem;
+    ;
+ }
+ .tabela table#pr td#produtos{
+    padding-left: 1rem;
+ }
+ 
+ .tabela hr{
+    padding-top: 4rem;
+    border-radius: 20px;
+    width: 69.9%;
+    margin-left: 18rem;
+ }
+
+ .tabela button{
+    background-color: #18286950;
+    font-size: 2rem;
+    position:fixed;
+    margin-left: 92.7rem;
+    margin-top: 26.8rem;
+    border-radius: 20px;
+    padding: 0.5rem;
+ }

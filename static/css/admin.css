@@ -276,12 +276,7 @@ form button {
 form button:hover {
     background-color: #0066ff;
     color: #fff;
-}
-/*  */
-/* MOdal */
-#modal{
 
-}
 /* lista de itens */
 #table{
     display: flex;

@@ -1,8 +1,6 @@
 from flask import Flask, render_template, redirect, request, session,flash
 from flask_sqlalchemy import SQLAlchemy
 
-
-
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
@@ -45,9 +43,7 @@ def login():
     return render_template('login.html')
 # aqui acabam as rotas principais
 
-# 
-
-# Rotas de altentição
+# Rotas de autentição
 @app.route('/auth', methods = ['GET', 'POST'])
 def auth():
     if request.method == 'POST':
@@ -62,6 +58,25 @@ def auth():
     else:
         flash('Erro no login, tente novamente!')
         return redirect('/login') 
+
+@app.route('/voltar')
+def home():
+    return redirect('/')
+
+@app.route('/admin', methods = ['GET','POST'])
+def admin():
+    if 'usuario_logado' not in session or session['usuario_logado'] == None:
+        flash('Faça o login antes de entrar nessa rota!')
+        return redirect('/login') 
+    tabelas = Vendedor.query.all()
+    return render_template('admin.html', tabelas=tabelas, produto='') 
+  
+@app.route('/logout')
+def volta_pagina():
+    session['usuario_logado'] = None
+    return render_template('login.html')
+# aqui terminam as toras de altentição
+
 
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
@@ -85,7 +100,6 @@ def selected():
     tabelas = Vendedor.query.all()
     return render_template('/admin.html', tabelas=tabelas, produto='', display='true')    
 
-
 @app.route('/new', methods = ['GET', 'POST'])
 def new_form():
     if request.method == 'POST':
@@ -95,10 +109,12 @@ def new_form():
             request.form['imagem'],
             request.form['preco']
         )
+
     db.session.add(produto)
     db.session.commit()
     tabelas = Vendedor.query.all()
     return render_template('/admin.html', display='',tabelas=tabelas, produto='')
+
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edita_item(id):

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +17,7 @@
 
         </header>
         <nav id="navgation">
+
             <ul class="menu">
                 
                 <li class="item">
@@ -71,6 +71,7 @@
                     Cancelar
                 </button>
             </form>    
+
         </article>
         {%endif%}
         <article id="table">
@@ -107,6 +108,7 @@
             </article>
             {% endif %}
         </article>
+
         {% if select != undefined %}
         <section id="modal">
             <div class="card">
@@ -119,10 +121,10 @@
                     <a class="btn-apagar" href="/delete/{{select.id}}">Apagar</a>
                 </div>
             </div>
-            {% endif %}
+
         </section>
-
-
+        {% endif %}  
+        
         <footer>
             <p>&copy;Blue Store - 2021</p>
         </footer>
