@@ -1,8 +1,6 @@
 from flask import Flask, render_template, redirect, request, session,flash
 from flask_sqlalchemy import SQLAlchemy
 
-
-
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
@@ -45,8 +43,6 @@ def login():
     return render_template('login.html')
 # aqui acabam as rotas principais
 
-# 
-
 # Rotas de autentição
 @app.route('/auth', methods = ['GET', 'POST'])
 def auth():
@@ -82,13 +78,27 @@ def volta_pagina():
 # aqui terminam as toras de altentição
 
 
+@app.route('/admin', methods = ['GET','POST'])
+def admin():
+    if 'usuario_logado' not in session or session['usuario_logado'] == None:
+        flash('Faça o login antes de entrar nessa rota!')
+        return redirect('/login') 
+    tabelas = Vendedor.query.all()
+    return render_template('admin.html', tabelas=tabelas, produto='') 
+  
+@app.route('/logout')
+def volta_pagina():
+    session['usuario_logado'] = None
+    return render_template('login.html')
+# aqui terminam as toras de altentição
+
+
 # aqui começam as rotas de manipulação do banco de dados
 # CRUD- Fazendo o CREATE
 @app.route('/select')
 def selected():
     tabelas = Vendedor.query.all()
     return render_template('/admin.html', tabelas=tabelas, produto='', display='true')    
-
 
 @app.route('/new', methods = ['GET', 'POST'])
 def new_form():

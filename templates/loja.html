@@ -7,19 +7,12 @@
     <title>Loja</title>
 </head>
 <body>
-    <article> 
-        {% for produto in tabela %}
-        <div class="product">
-            <h2>{{produto.nome}}</h2>
-            <img src="{{v.link}}" alt="">
-            <p>{{produto.descricao}}</p>
-            <p class="price">{{produto.preco}}</p>
+
             <div class="icons">
                 <i class="fas fa-edit"> Editar</i>
                 <i class="fas fa-trash"> Remover</i>
             </div>
-        </div>
-        {% endfor %}
+
     </article>
 </body>
 </html>
