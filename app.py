@@ -47,7 +47,7 @@ def login():
 
 # 
 
-# Rotas de altentição
+# Rotas de autentição
 @app.route('/auth', methods = ['GET', 'POST'])
 def auth():
     if request.method == 'POST':
@@ -62,6 +62,10 @@ def auth():
     else:
         flash('Erro no login, tente novamente!')
         return redirect('/login') 
+
+@app.route('/voltar')
+def home():
+    return redirect('/')
 
 @app.route('/admin', methods = ['GET','POST'])
 def admin():
@@ -95,10 +99,12 @@ def new_form():
             request.form['imagem'],
             request.form['preco']
         )
+
     db.session.add(produto)
     db.session.commit()
     tabelas = Vendedor.query.all()
     return render_template('/admin.html', display='',tabelas=tabelas, produto='')
+
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edita_item(id):
