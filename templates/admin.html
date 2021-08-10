@@ -19,13 +19,13 @@
         </header>
         <nav id="navgation">
             <ul>
-                <li id="add">Adicionar um item</li>
+                <li><a href="/select">Adicionar um item</a></li>
                 <li><a href="/loja">Ir para loja</a> </li>
                 <li><a href="/about">Sobre nós</a></li>
                 <li class="exit"><a href="/logout">Sair</a></li>
             </ul>
         </nav>
-
+        {% if display == 'true'%}
         <article id="cadastro">
             {% if produto == '' %}
             <form action="/new" method="POST">
@@ -56,9 +56,9 @@
                 <button id="cancel" type="button">
                     Cancelar
                 </button>
-            </form>
-            
+            </form>    
         </article>
+        {%endif%}
         <article id="table">
             {% if produto == '' %}
             <article id="lista">
@@ -93,16 +93,16 @@
             </article>
             {% endif %}
         </article>
-        {% if select != '' %}
+        {% if select != undefined %}
         <section id="modal">
             <div class="card">
                 <a href="/admin" id="fechar"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <h2>Confirmação</h2>
                 <hr>
-                <p>Deseja realmente apagar o projeto: {{produto.nome}} </p>
+                <p>Deseja realmente apagar o projeto: {{select.nome}} </p>
                 <div id="btns">
                     <a class="btn-cancelar" id="close" href="/admin">Cancelar</a>
-                    <a class="btn-apagar" href="/delete/{{produto.id}}">Apagar</a>
+                    <a class="btn-apagar" href="/delete/{{select.id}}">Apagar</a>
                 </div>
             </div>
         {% endif %}    
