@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ilzpkagm:tFfCmwORirxRZeVpvqJJ1vFd7YVWXOE6@kesavan.db.elephantsql.com/ilzpkagm'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://oylvfkns:gWSc41l04bs7TG30DKBPzTEl7eJB_Bnp@kesavan.db.elephantsql.com/oylvfkns'
 acesso_usuario = 'admin'
 acesso_senha = 'admin'
 app.secret_key = 'store'
@@ -69,7 +69,7 @@ def admin():
         flash('Faça o login antes de entrar nessa rota!')
         return redirect('/login') 
     tabelas = Vendedor.query.all()
-    return render_template('admin.html', tabelas=tabelas, tabela='') 
+    return render_template('admin.html', tabelas=tabelas, produto='') 
   
 @app.route('/logout')
 def volta_pagina():
@@ -80,6 +80,12 @@ def volta_pagina():
 
 # aqui começam as rotas de manipulação do banco de dados
 # CRUD- Fazendo o CREATE
+@app.route('/select')
+def selected():
+    tabelas = Vendedor.query.all()
+    return render_template('/admin.html', tabelas=tabelas, produto='', display='true')    
+
+
 @app.route('/new', methods = ['GET', 'POST'])
 def new_form():
     if request.method == 'POST':
@@ -92,32 +98,33 @@ def new_form():
     db.session.add(produto)
     db.session.commit()
     tabelas = Vendedor.query.all()
-    return render_template('/admin.html', tabelas=tabelas, tabela='')
+    return render_template('/admin.html', display='',tabelas=tabelas, produto='')
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edita_item(id):
-    tabela = Vendedor.query.get(id)
+    produto = Vendedor.query.get(id)
     tabelas = Vendedor.query.all()
     if request.method == "POST":
-        tabela.nome = request.form['nome']
-        tabela.descricao = request.form['descricao']
-        tabela.imagem = request.form['imagem']
-        tabela.preco = request.form['preco']
+        produto.nome = request.form['nome']
+        produto.descricao = request.form['descricao']
+        produto.imagem = request.form['imagem']
+        produto.preco = request.form['preco']
         db.session.commit() 
         return redirect('/admin')
-    return render_template('admin.html', tabelas=tabelas, tabela=tabela) 
+    return render_template('admin.html', display='true', tabelas=tabelas, produto=produto) 
 
 
 @app.route('/<id>')
 def idselector(id):
-    tabela = Vendedor.query.get(id)
-    return render_template('admin.html', tabela=tabela)
+    produto = Vendedor.query.get(id)
+    tabelas = Vendedor.query.all()
+    return render_template('admin.html', select=produto, tabelas=tabelas, produto='')
 
 
 @app.route('/delete/<id>')
 def delete(id):
-    tabela = Vendedor.query.get(id)
-    db.session.delete(tabela)
+    produto = Vendedor.query.get(id)
+    db.session.delete(produto)
     db.session.commit()
     return redirect('/admin')
 

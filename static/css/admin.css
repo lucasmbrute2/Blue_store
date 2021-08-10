@@ -215,7 +215,7 @@ header:focus, header:hover{
 /* navegador ^ */
 /* Tela de cadastro */
 #cadastro{
-    display:none;
+    display:flex;
     flex-wrap: wrap;
     padding: 2rem;
     justify-content: center;
@@ -276,6 +276,11 @@ form button {
 form button:hover {
     background-color: #0066ff;
     color: #fff;
+}
+/*  */
+/* MOdal */
+#modal{
+
 }
 /* lista de itens */
 #table{

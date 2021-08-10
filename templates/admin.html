@@ -37,44 +37,49 @@
                     <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Sair</span></a>
                 </li>
 
+            <ul>
+                <li><a href="/select">Adicionar um item</a></li>
+                <li><a href="/loja">Ir para loja</a> </li>
+                <li><a href="/about">Sobre nós</a></li>
+                <li class="exit"><a href="/logout">Sair</a></li>
             </ul>
         </nav>
-
+        {% if display == 'true'%}
         <article id="cadastro">
-            {% if tabela == ''%}
+            {% if produto == '' %}
             <form action="/new" method="POST">
                 <h1>Cadastre um novo produto</h1>
-                {%else%}
-                <form action="/edit/{{tabela.id}}" method="POST">
-                    <h1>Modifique um produto</h1>
+            {%else%}
+            <form action="/edit/{{produto.id}}" method="POST">
+                <h1>Modifique um produto</h1>
+            {%endif%}
+                <label for="nome">Nome do produto:</label>
+                <input type="text" id ='nome' name ='nome' value ='{{produto.nome}}'>
+            
+                <label for="imagem">Link da imagem:</label>
+                <input type="text" id= 'imagem' name='imagem' value ='{{produto.imagem}}'>
+                
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" id="descricao" cols="30" rows="6">{{produto.descricao}}</textarea>
+            
+                <label for="preco">Preço:</label>
+                <input type='number' id='preco' name = 'preco' value = '{{produto.preco}}'>
+                
+                <button type="submit">
+                    {%if produto == ''%}
+                    Adicionar
+                    {%else%}
+                    Atualizar
                     {%endif%}
-                    <label for="nome">Nome do produto:</label>
-                    <input type="text" id='nome' name='nome' value='{{tabela.nome}}'>
-
-                    <label for="imagem">Link da imagem:</label>
-                    <input type="text" id='imagem' name='imagem' value='{{tabela.imagem}}'>
-
-                    <label for="descricao">Descrição:</label>
-                    <textarea name="descricao" id="descricao" cols="30" rows="6">{{tabela.descricao}}</textarea>
-
-                    <label for="preco">Preço:</label>
-                    <input type='number' id='preco' name='preco' value='{{tabela.preco}}'>
-
-                    <button type="submit">
-                        {%if tabela == ''%}
-                        Adicionar
-                        {%else%}
-                        Atualizar
-                        {%endif%}
-                    </button>
-                    <button id="cancel" type="button">
-                        Cancelar
-                    </button>
-                </form>
-
+                </button>
+                <button id="cancel" type="button">
+                    Cancelar
+                </button>
+            </form>    
         </article>
+        {%endif%}
         <article id="table">
-            {% if tabela == '' %}
+            {% if produto == '' %}
             <article id="lista">
                 <table>
                     <thead>
@@ -107,16 +112,16 @@
             </article>
             {% endif %}
         </article>
-        {% if tabela != '' %}
+        {% if select != undefined %}
         <section id="modal">
             <div class="card">
                 <a href="/admin" id="fechar"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <h2>Confirmação</h2>
                 <hr>
-                <p>Deseja realmente apagar o projeto: {{tabela.nome}} </p>
+                <p>Deseja realmente apagar o projeto: {{select.nome}} </p>
                 <div id="btns">
                     <a class="btn-cancelar" id="close" href="/admin">Cancelar</a>
-                    <a class="btn-apagar" href="/delete/{{tabela.id}}">Apagar</a>
+                    <a class="btn-apagar" href="/delete/{{select.id}}">Apagar</a>
                 </div>
             </div>
             {% endif %}
