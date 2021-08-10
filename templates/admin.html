@@ -1,81 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <script src="https://kit.fontawesome.com/7515ad9b6d.js" crossorigin="anonymous"></script>
     <title>Area do Administrador</title>
 </head>
+
 <body>
     <section>
-        <nav class="menu">
-            <a href="">Home</a>
-            <a href="">Store</a>
-            <a href="">About us</a>
-        </nav>
-        <header>Blue Store</header>
-        <aside>
-            <ul>
-                <li>Item de menu</li>
-                <li>Item de menu</li>
-                <li>Item de menu</li>
-                <li>Item de menu</li>
-            </ul>
-        </aside>
-        
-        
-        <form action="/formulario" method="POST">
-
-        <label for="nome">Nome do produto</label>
-        <input type="text" id ='nome' name ='nome'>
-        
-        <label for="preco">Preço</label>
-        <input type='number' id='preco' name = 'preco'>
-
-        <label for="link">Link da imagem</label>
-        <input type="text" id= 'link' name='link'>
-        
-        <label for="descricao">Descrição</label>
-        <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
-        <button type="submit">Editar</button>
-    
-    
-    </form>
-        
-        <article>
-                
-            <div class="product">
-                    {% for v in tabela%}
-                        <h1>{{v.nome}}</h1>
-                        <p>{{v.preco}}</p>
-                        <p>{{v.descricao}}</p>
-                        
-                        <img src="{{p.descricao}}" alt="">
-                
-                    {% endfor %}
-                </div>
-            <a href="/formulario" method = 'POST'>Enviar</a>
-                
-                
-                <!-- <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div>
-                <div class="product"><img src="https://i.picsum.photos/id/980/200/300.jpg?hmac=HeQeE7MnUiOHTOqHUI4GrY3wL5tloq1zukVClSAcUB8" alt=""></div> -->
+        <header id="header">
+            <h1>Blue Store</h1>
+            <p>Painel do Administrador</p>
           
-            </form>
-    
+        </header>
+        <nav id="navgation">
+            <ul>
+                <li><a href="/select">Adicionar um item</a></li>
+                <li><a href="/loja">Ir para loja</a> </li>
+                <li><a href="/about">Sobre nós</a></li>
+                <li class="exit"><a href="/logout">Sair</a></li>
+            </ul>
+        </nav>
+        {% if display == 'true'%}
+        <article id="cadastro">
+            {% if produto == '' %}
+            <form action="/new" method="POST">
+                <h1>Cadastre um novo produto</h1>
+            {%else%}
+            <form action="/edit/{{produto.id}}" method="POST">
+                <h1>Modifique um produto</h1>
+            {%endif%}
+                <label for="nome">Nome do produto:</label>
+                <input type="text" id ='nome' name ='nome' value ='{{produto.nome}}'>
+            
+                <label for="imagem">Link da imagem:</label>
+                <input type="text" id= 'imagem' name='imagem' value ='{{produto.imagem}}'>
+                
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" id="descricao" cols="30" rows="6">{{produto.descricao}}</textarea>
+            
+                <label for="preco">Preço:</label>
+                <input type='number' id='preco' name = 'preco' value = '{{produto.preco}}'>
+                
+                <button type="submit">
+                    {%if produto == ''%}
+                    Adicionar
+                    {%else%}
+                    Atualizar
+                    {%endif%}
+                </button>
+                <button id="cancel" type="button">
+                    Cancelar
+                </button>
+            </form>    
         </article>
+        {%endif%}
+        <article id="table">
+            {% if produto == '' %}
+            <article id="lista">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Imagem</th>
+                            <th>Preço</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        {% for p in tabelas %}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nome}}</td>
+                            <td>{{p.descricao}}</td>
+                            <td>{{p.imagem}}</td>
+                            <td>{{p.preco}}</td>
+                            <td>
+                                <a id="edit" href="/edit/{{p.id}}">Editar</a>
+                                <a href="/{{p.id}}">Apagar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+            {% endif %}
+        </article>
+        {% if select != undefined %}
+        <section id="modal">
+            <div class="card">
+                <a href="/admin" id="fechar"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <h2>Confirmação</h2>
+                <hr>
+                <p>Deseja realmente apagar o projeto: {{select.nome}} </p>
+                <div id="btns">
+                    <a class="btn-cancelar" id="close" href="/admin">Cancelar</a>
+                    <a class="btn-apagar" href="/delete/{{select.id}}">Apagar</a>
+                </div>
+            </div>
+        {% endif %}    
+        </section>
+
+        
         <footer>
             <p>&copy;Blue Store - 2021</p>
         </footer>
     </section>
+    <script src="../static/js/admin.js"></script>
 </body>
+
 </html>

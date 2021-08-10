@@ -33,7 +33,7 @@ section{
     padding: 10rem;
     border-radius: 0px 00px 20px 0px;
     display: block;
-    height: 250px;
+    height: 280px;
 }
 #loginCard .loginIcon{
     text-align: center;
@@ -92,6 +92,9 @@ section{
     border: none;
     cursor: pointer;   
 }
+#loginCard .loginForm button:hover{
+    transform: scale(1.2);
+}
 #loginCard .btn{
     padding: .5rem ;
     background-color: white;
@@ -104,6 +107,11 @@ section{
     bottom: 15%;
     right: 29%;
     cursor: pointer;
+}
+#loginCard .btn:hover{
+    transform: scale(1.2);
+    color: white;
+    background-color: #575A89;
 }
 /* login card */
 
@@ -162,5 +170,8 @@ section{
     grid-gap: 1rem;
     margin: .3rem .1rem;
     cursor: pointer;
+}
+#descriptionCard .btn:hover{
+    transform: scale(1.01);
 }
 /*  Demoin verde */

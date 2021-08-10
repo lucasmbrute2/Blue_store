@@ -1,0 +1,67 @@
+/* página dos produtos */
+#productPainel{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#productPainel .product{
+    margin: 1rem;
+    background-color:white;
+    position: relative;
+    padding: .5rem;
+    border-radius: 4px;
+    width: 18rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    
+}
+.product:hover{
+    transform: scale(1.1);
+}
+#productPainel .price{
+    font-weight: 700;
+}
+#productPainel img{
+    width: 100%;
+}
+#productPainel .icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#productPainel .fa-edit{
+    border-radius: .3rem;
+    font-size: 1.3rem;
+    color: rgb(3,64,106);
+    background-color: #fff;
+    border: 2px solid rgb(3,64,106);
+    padding: .3rem;
+    margin: .2rem .3rem;
+    cursor: pointer;
+    transition: all .4s;
+
+}
+#productPainel .fa-trash{
+    border-radius: .3rem;
+    font-size: 1.3rem;
+    color: rgb(3,64,106);
+    background-color: #fff;
+    border: 2px solid rgb(3,64,106);
+    padding: .3rem;
+    margin: .2rem .3rem;
+    cursor: pointer;
+    transition: all .4s;
+}
+#productPainel .fa-edit:hover{
+    background-color:rgb(3,64,106);
+    color: #fff;
+    
+}
+#productPainel .fa-trash:hover{
+    background-color:red;
+    color: #fff;
+}
