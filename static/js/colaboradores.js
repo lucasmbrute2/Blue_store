@@ -7,11 +7,8 @@ function typeWrite(elemento){
     elemento.innerHTML = ''
     textoArray.forEach((letra,i)=>{
         console.log(letra);
-        setTimeout(function() {
-            elemento.innerHTML += letra
-        }, 200*i)
-
-    })
+        setTimeout(() => elemento.innerHTML += letra, 200*i)
+    });
     }
 
 typeWrite(titulo)
