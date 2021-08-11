@@ -1,26 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja</title>
+    <script src="https://kit.fontawesome.com/7515ad9b6d.js" crossorigin="anonymous"></script>
+    <title>Store</title>
+    <link rel="stylesheet" href="../static/css/loja.css">
 </head>
 <body>
-    <article> 
-        <div class="product">
-            {% for v in tabela%}
-            <h2>{{v.nome}}</h2>
-            <img src="{{v.link}}" alt="">
-            <p>{{v.descricao}}</p>
-            <p class="price">{{v.preco}}</p>
-            <div class="icons">
-                <i class="fas fa-edit"> Editar</i>
-                <i class="fas fa-trash"> Remover</i>
+    <header id="header">
+        <h1>Blue Store</h1>
+        <p>Painel do Administrador</p>
+
+    </header>
+    <nav id="navgation">
+
+        <ul class="menu">
+           
+            <li class="item">
+                <a class="link" href="/cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span>Loja</span></a>
+            </li>
+
+            <li class="item">
+                <a class="link" href="/about"><i class="fa fa-users" aria-hidden="true"></i><span>Sobre nós</span></a>
+            </li>
+
+            <li class="item">
+                <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Sair</span></a>
+            </li>
+        </ul>
+
+    </nav>
+    
+    <article>
+        <aside class='lateral'>
+            <div>
+                
+                    <a class="btn btn-danger" href="/filter/ssd">SDD</a>
+                    <a class="btn btn-danger" href="/filter/ram">Memoria RAM</a>
+                    <a class="btn btn-danger" href="/filter/video">Placa de video</a>
+                
+            </div>
+        </aside>
+            
+        <section class='listaP'>
+            {% for p in produto %}
+            <div id='card'>
+                <img src="{{p.imagem}}" alt="img-lorem">
+                <h2>{{p.nome}}</h2>
+                <p>{{p.descricao}}</p>
+                <a href="{{p.id}}" target="_blank">Adicionar ao carrinho</a>
             </div>
             {% endfor %}
-
-        </div>
+        </section>
+        
     </article>
+    
+
 </body>
 </html>

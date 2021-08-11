@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,15 +14,30 @@
         <header id="header">
             <h1>Blue Store</h1>
             <p>Painel do Administrador</p>
-          
+
         </header>
         <nav id="navgation">
-            <ul>
-                <li><a href="/select">Adicionar um item</a></li>
-                <li><a href="/loja">Ir para loja</a> </li>
-                <li><a href="/about">Sobre nós</a></li>
-                <li class="exit"><a href="/logout">Sair</a></li>
+
+            <ul class="menu">
+                
+                <li class="item">
+                    <a class="link" href="/select"><i class="fa fa-plus-circle" aria-hidden="true"></i><span>Adicionar
+                        item</span></a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/loja"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span>Loja</span></a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/about"><i class="fa fa-users" aria-hidden="true"></i><span>Sobre nós</span></a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Sair</span></a>
+                </li>
             </ul>
+
         </nav>
         {% if display == 'true'%}
         <article id="cadastro">
@@ -57,6 +71,7 @@
                     Cancelar
                 </button>
             </form>    
+
         </article>
         {%endif%}
         <article id="table">
@@ -73,7 +88,7 @@
                             <th>Opções</th>
                         </tr>
                     </thead>
-    
+
                     <tbody>
                         {% for p in tabelas %}
                         <tr>
@@ -93,6 +108,7 @@
             </article>
             {% endif %}
         </article>
+
         {% if select != undefined %}
         <section id="modal">
             <div class="card">
@@ -105,9 +121,9 @@
                     <a class="btn-apagar" href="/delete/{{select.id}}">Apagar</a>
                 </div>
             </div>
-        {% endif %}    
-        </section>
 
+        </section>
+        {% endif %}  
         
         <footer>
             <p>&copy;Blue Store - 2021</p>
