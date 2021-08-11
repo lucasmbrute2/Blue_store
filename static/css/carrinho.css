@@ -22,6 +22,8 @@ nav{
     display: block;
     margin-left: auto;
     margin-top: 4rem;
+    
+
  }
 
  nav ul{
@@ -30,18 +32,23 @@ nav{
     font-size: 1vw;
     align-items: center;
     font-weight: bold;
+    text-align: center;
+    
+
  }
  
  nav ul h2{  
      color: white;
-     margin-right: 16rem;
+     margin-right: 10rem;
      text-shadow: 0 0 0.2em rgb(216, 211, 211), 0 0 0.2em rgb(233, 226, 226);
+     text-align: center;
  }
 
  nav ul li a{
     text-decoration: none;
     color: #fff;
     padding: 3rem;
+    text-align: center;
  }
 
  header{

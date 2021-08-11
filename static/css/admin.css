@@ -156,64 +156,7 @@ header:focus, header:hover{
 #navgation .menu .item:hover .link i{
     transform: translateY(-75%); /*quando o hover for acionado, o ícone elava-se um pouco*/
 } 
-/*
-#navigation img{
-    width: 10%;
-}
-#navgation ul{
-    list-style-type: none;
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-}
 
-#navgation ul li{
-    /* width: 70%; */
-    /* border-radius: .3rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: rgb(8, 44, 68); /*mudança cor*/
-    /* background-color: #fff;
-    border: 2px solid rgb(8, 44, 68); /*mudança cor*/
-    /* padding: .5rem; /*aumento da padding*/
-    /* margin: .2rem .3rem; */
-    /* letter-spacing: .1rem; */
-    /* cursor: pointer; */
-    /* z-index: 10; */
-    /* position: relative;  */
-    /* transition: all .4s;  */
-/* } */
-/* #navgation ul li::before{efeito de transição do background */
-    /* content: ''; */
-    /* position:absolute; */
-    /* top:0; */
-    /* left:0px; */
-    /* width:10px; */
-    /* height:100%; */
-    /* background: rgba(30,132,242,0.58); */
-    /* z-index:-1; */
-    /* transition: all .4s */
-/* } */
-/* #navgation ul .exit::before{ */
-    /* content: ''; */
-    /* position:absolute;
-    top:0;
-    left:0px;
-    width:10px;
-    height:100%;
-    background: rgb(179, 0, 0);
-    z-index:-1;
-    transition: all .4s */
-/* } */
-/* #navgation ul li:hover::before{
-    width:100%;
-} */
-
-/* #navgation ul li:hover{
-    color:white; 
-} */
-/* navegador ^ */
-/* Tela de cadastro */
 #cadastro{
     display:flex;
     flex-wrap: wrap;
@@ -276,9 +219,9 @@ form button {
 form button:hover {
     background-color: #0066ff;
     color: #fff;
-
+}
 /* lista de itens */
-#table{
+#table {
     display: flex;
     align-items: center;
     justify-content: center;
