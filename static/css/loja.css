@@ -1,67 +1,206 @@
-/* página dos produtos */
-#productPainel{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 2rem;
-    overflow: auto;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
-
-#productPainel .product{
-    margin: 1rem;
-    background-color:white;
-    position: relative;
-    padding: .5rem;
-    border-radius: 4px;
-    width: 18rem;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    
-}
-.product:hover{
-    transform: scale(1.1);
-}
-#productPainel .price{
-    font-weight: 700;
-}
-#productPainel img{
+body{
+    background: rgb(3,64,106);
+    background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
     width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    font-family: 'Hahmlet', serif;
 }
-#productPainel .icons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/*  cabeçalho */
+#header{
+    width: 100%;
+    /* font-size: 5rem; */
+    color:#c6e2ff;
+    text-align: center;
+    animation: neon .1s ease-in-out infinite alternate;
+    margin-top: 2rem;
 }
-#productPainel .fa-edit{
-    border-radius: .3rem;
-    font-size: 1.3rem;
-    color: rgb(3,64,106);
-    background-color: #fff;
-    border: 2px solid rgb(3,64,106);
-    padding: .3rem;
-    margin: .2rem .3rem;
-    cursor: pointer;
-    transition: all .4s;
+#header h1{ 
+    font-size:5rem;
+}
+#header p{
+    font-size: 2rem; 
+}
+@keyframes neon{
+from{
+    text-shadow: 
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
 
 }
-#productPainel .fa-trash{
-    border-radius: .3rem;
-    font-size: 1.3rem;
-    color: rgb(3,64,106);
-    background-color: #fff;
-    border: 2px solid rgb(3,64,106);
-    padding: .3rem;
-    margin: .2rem .3rem;
-    cursor: pointer;
-    transition: all .4s;
-}
-#productPainel .fa-edit:hover{
-    background-color:rgb(3,64,106);
-    color: #fff;
+to{
+    text-shadow: 
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
     
 }
-#productPainel .fa-trash:hover{
-    background-color:red;
-    color: #fff;
 }
+
+header:focus, header:hover{ 
+
+    color: #c6e2ff;
+        text-shadow:
+    0 0 2px rgba(202,228,225,0.92),
+    0 0 10px rgba(202,228,225,0.34),
+    0 0 4px rgba(30,132,242,0.52),
+    0 0 7px rgba(30,132,242,0.92),
+    0 0 11px rgba(30,132,242,0.78),
+    0 0 16px rgba(30,132,242,0.92);
+
+}
+/*titulo com efeito neon*/
+
+/* menu horizontal */
+#navgation{
+    grid-area: aside;
+    position: sticky;
+    top:0;
+    z-index: 9;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 60%;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    background-color: transparent;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .25);
+    overflow: hidden;
+    height: 5rem;
+    padding: 1rem;
+}
+
+ #navgation .menu{ 
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#navgation .menu .item{
+    position: relative;
+    padding: 1rem;
+    width: 10rem;
+    height: 100%;
+    transition: ease .4s;
+    cursor: pointer;
+}
+
+#navgation .menu .item:hover{
+    background-color: rgba(3,64,106,1);
+    border-radius: 1rem;
+    
+}
+
+#navgation .menu .item .link{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 5rem;
+    color: rgba(0,212,255,1);
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    transition: ease .4s; 
+    
+
+} 
+
+#navgation .menu .item .link span{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    top: -20%;
+    opacity: 1;
+    transition: ease .4s; 
+
+}
+
+#navgation .menu .item .link i{ 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 60%; /*o ícone mantém-se mais perto da borda inferior*/
+    transform: translateY(-50%);
+    width: 80%; 
+    font-size: 1.8rem;
+    transition: ease .4s;
+}
+#navgation .menu .item:hover .link span{
+    opacity: 1; 
+    top:10px;
+   
+}
+
+#navgation .menu .item:hover .link i{
+    transform: translateY(-75%); /*quando o hover for acionado, o ícone elava-se um pouco*/
+} 
+article{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 1rem;
+    width: auto;
+}
+.listaP{
+    background-color:#ffffff80;
+    display: flex;
+    justify-content: left;
+    inset-inline: center; 
+    border-radius: 20px;
+}
+.listaP .card a{
+    text-decoration: none;
+   
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60%;
+    height: 35%;
+    margin-top: 3rem;
+    margin-left: 3.5rem;
+    
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
+    text-align: center;
+  }
+
+  .lateral {
+    background-color: #18286950;
+    width: 10%;
+    height: 62%;
+    padding-left: 2rem;
+    margin-left: 1rem;
+    border-radius: 20px;
+    padding-top: 2rem;
+
+  }
+
+  .lateral div a{
+      color: white;
+      width: 5rem;
+      text-decoration: none;
+  }
