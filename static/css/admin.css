@@ -203,22 +203,33 @@ form label {
 }
 
 form button {
-    margin-top: 1.2rem;
-    width: 90%;
-    height: 90%;
-    justify-self: center;
-    background-color: rgba(0,212,255,1);
-    border-radius: 12px;
-    color: #575A89;
+    margin: 2.5rem 4rem;
+    width: 25%; /*alteração de largura e altura*/
+    height: 30%;
+    padding: 1rem;
+    background-color: #0066ff;
+    color: #fff;
     font-weight: 700;
     font-size: 1rem;
     border: none;
     cursor: pointer;  
+    transition-duration: 0.4s;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 1rem;
 }
 
 form button:hover {
-    background-color: #0066ff;
-    color: #fff;
+    background: #fff;
+    box-shadow: 0px 2px 10px 5px #1abc9c;
+    color: rgb(8, 83, 8);
+}
+
+form button#cancel:hover{
+    background: #fff;
+    box-shadow: 0px 2px 10px 5px #bc1a1a;
+    color: red;
+
 }
 /* lista de itens */
 #table {
