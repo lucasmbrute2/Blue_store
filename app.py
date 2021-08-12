@@ -27,6 +27,18 @@ class Vendedor(db.Model):
         self.descricao = descricao
         self.imagem = imagem
         self.preco = preco
+
+class Carrinho(db.Model):
+    id = db.Column(db.Integer, primary_key=True,autoincrement = True )
+    nome = db.Column(db.String(50), nullable= False)
+    descricao = db.Column(db.String(500), nullable =False)
+    imagem = db.Column(db.String(7000), nullable=False)
+    preco = db.Column(db.Integer, nullable = False )
+    def __init__(self, nome,descricao,imagem,preco):
+        self.nome = nome
+        self.descricao = descricao
+        self.imagem = imagem
+        self.preco = preco
 # Página princial
 # e principais rotas
 @app.route('/')
@@ -36,13 +48,16 @@ def index():
 def pagina_loja():
     produto = Vendedor.query.all()
     return render_template('loja.html', produto=produto) 
+    
+
 @app.route('/about')
 def pagina_sobre():
     return render_template('sobre.html')
 
 @app.route('/cart')
 def cart():
-    return render_template('carrinho.html')
+    carrinho = Carrinho.query.all()
+    return render_template('carrinho.html', carrinho=carrinho)
 
 @app.route('/login')    
 def login():
@@ -139,6 +154,34 @@ def delete(id):
 def filter_param(param):
     tabelas = Vendedor.query.filter(descricao=param).all()
     return render_template('loja.html', tabelas=tabelas)
+    
+@app.route('/cart/<id>')
+def cart_id(id):
+    produto = Vendedor.query.get(id)
+    carrinho = Carrinho(
+        produto.nome,
+        produto.descricao,
+        produto.imagem,
+        produto.preco
+        )
+    db.session.add(carrinho)
+    db.session.commit()
+    return redirect('/cart')
+
+@app.route('/delete_cart/<id>')
+def cart_delete(id):
+    produto = Carrinho.query.get(id)
+    db.session.delete(produto)
+    db.session.commit()
+    return redirect('/cart')
+
+@app.route('/cart/finalizar')
+def finalizar():
+    db.session.query(Carrinho).delete()
+    db.session.commit()
+    produto = Vendedor.query.all()
+    flash("Compra efetuada com sucesso!")
+    return render_template('loja.html', produto=produto) 
     
 
 if __name__ == '__main__':

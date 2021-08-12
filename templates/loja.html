@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +9,31 @@
     <title>Store</title>
     <link rel="stylesheet" href="../static/css/loja.css">
 </head>
+
 <body>
+    
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    
+
     <header id="header">
         <h1>Blue Store</h1>
-        <p>Painel do Administrador</p>
+        <p>Loja</p>
 
     </header>
     <nav id="navgation">
 
         <ul class="menu">
-           
+
             <li class="item">
-                <a class="link" href="/cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span>Loja</span></a>
+                <a class="link" href="/cart"><i class="fas fa-shopping-cart"></i><span>Carrinho</span></a>
             </li>
 
             <li class="item">
@@ -32,31 +46,36 @@
         </ul>
 
     </nav>
-    
+
     <article>
         <aside class='lateral'>
             <div>
-                
-                    <a class="btn btn-danger" href="/filter/ssd">SDD</a>
-                    <a class="btn btn-danger" href="/filter/ram">Memoria RAM</a>
-                    <a class="btn btn-danger" href="/filter/video">Placa de video</a>
-                
+
+                <a class="btn btn-danger" href="/filter/ssd">SDD</a>
+                <a class="btn btn-danger" href="/filter/ram">Memoria RAM</a>
+                <a class="btn btn-danger" href="/filter/video">Placa de video</a>
+
             </div>
         </aside>
-            
+
         <section class='listaP'>
             {% for p in produto %}
-            <div id='card'>
+            <div class='card'>
                 <img src="{{p.imagem}}" alt="img-lorem">
                 <h2>{{p.nome}}</h2>
                 <p>{{p.descricao}}</p>
-                <a href="{{p.id}}" target="_blank">Adicionar ao carrinho</a>
+                <p>{{p.preco}}</p>
+                <a href="/cart/{{p.id}}"><i class="fas fa-cart-plus"></i></a>
             </div>
             {% endfor %}
         </section>
-        
+
     </article>
-    
+
+    <footer>
+        <p>&copy; Blue Store - 2021</p>
+    </footer>
 
 </body>
+
 </html>

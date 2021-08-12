@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,41 +8,66 @@
     <link rel="stylesheet" href="../static/css/carrinho.css">
     <title>Meu carrinho</title>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <h2>Blue Store</h2>
-            <li><a href="/loja">Home</a></li>
-            <li><a href="/templates/loja.html">Store</a></li>
-            <li><a href="/about">About Us</a></li>
-         </ul>
+    <header id="header">
+        <h1><a href="/loja">Blue Store</h1></a> 
+        <p>Carrinho</p>
+
+    </header>
+    <nav id="navgation">
+
+        <ul class="menu">
+
+            <li class="item">
+                <a class="link" href="/loja"><i class="fas fa-shopping-cart"></i><span>Voltar</span></a>
+            </li>
+
+            <li class="item">
+                <a class="link" href="/about"><i class="fa fa-users" aria-hidden="true"></i><span>Sobre nós</span></a>
+            </li>
+
+            <li class="item">
+                <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Sair</span></a>
+            </li>
+        </ul>
+
     </nav>
     
-    <header id="um">
+    <section class="tituloCarrinho">
         <div id="titulo">
             <h1>Meu carrinho</h1>
             <img src="../static/img/carrinho/carrinho_pag.png" alt="carrinho de compra">
         </div>
-    </header>
+    </section>
 
     <section class="tabela">
         <table id=pr>
             <tr id=um>
                 <td id="produtos">Produtos</td>
                 <td id="preço">Preço</td>
-                
+                <a id="botao" href="/cart/finalizar">
+                    Finalizar
+                </a>
             </tr>
-            
-            <tr id="tabelab">
-                
-            </tr>
-            
         </table>
-        <hr>
-        <button id="botao">
-            Finalizar
-        </button>
-    </section> 
-    
+    </section>
+    <section class='listaP'>
+        {% for p in carrinho %}
+        <div class='card'>
+            <img src="{{p.imagem}}" alt="img-lorem">
+            <h2>{{p.nome}}</h2>
+            <p>{{p.descricao}}</p>
+            <p>{{p.preco}}</p>
+            <!-- <a href="/cart/{{p.id}}"><i class="fas fa-cart-plus"></i></a> -->
+            <a href="/delete_cart/{{p.id}}">deletar</a>
+        </div>
+        {% endfor %}
+    </section>
+    <footer>
+        &copy; Blue Store - 2021
+    </footer>
+
 </body>
+
 </html>
