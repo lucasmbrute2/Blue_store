@@ -1,113 +1,141 @@
 @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+   margin: 0;
+   padding: 0; 
 }
 
 body{
-    background: rgb(3,64,106);
-    background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
-    background-repeat: no-repeat;
-    background-clip: padding-box;
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Hahmlet', serif;
+   background: rgb(3,64,106);
+   background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
+   background-repeat: no-repeat;
+   background-clip: padding-box;
+   font-family: 'Hahmlet', serif;
 }
 
-nav{
-    font-weight: 500;
-    width: 70%;
-    display: block;
-    margin-left: auto;
-    margin-top: 4rem;
- }
+/*  cabeçalho */
+#header{
+   width: 100%;
+   /* font-size: 5rem; */
+   color:#c6e2ff;
+   text-align: center;
+   animation: neon .1s ease-in-out infinite alternate;
+   margin-top: 2rem;
+}
+#header h1{ 
+   font-size:5rem;
+}
+#header p{
+   font-size: 2rem; 
+}
+@keyframes neon{
+from{
+   text-shadow: 
+   0 0 6px rgba(202,228,225,0.92),
+   0 0 30px rgba(202,228,225,0.34),
+   0 0 12px rgba(30,132,242,0.52),
+   0 0 21px rgba(30,132,242,0.92),
+   0 0 34px rgba(30,132,242,0.78),
+   0 0 54px rgba(30,132,242,0.92);
 
- nav ul{
-    list-style: none;
-    display: flex;
-    font-size: 1vw;
-    align-items: center;
-    font-weight: bold;
- }
- 
- nav ul h2{  
-     color: white;
-     margin-right: 16rem;
-     text-shadow: 0 0 0.2em rgb(216, 211, 211), 0 0 0.2em rgb(233, 226, 226);
- }
+}
+to{
+   text-shadow: 
+   0 0 6px rgba(202,228,225,0.98),
+   0 0 30px rgba(202,228,225,0.42),
+   0 0 12px rgba(30,132,242,0.58),
+   0 0 22px rgba(30,132,242,0.84),
+   0 0 38px rgba(30,132,242,0.88),
+   0 0 60px rgba(30,132,242,1);
+   
+}
+}
 
- nav ul li a{
-    text-decoration: none;
-    color: #fff;
-    padding: 3rem;
- }
+header:focus, header:hover{ 
+
+   color: #c6e2ff;
+       text-shadow:
+   0 0 2px rgba(202,228,225,0.92),
+   0 0 10px rgba(202,228,225,0.34),
+   0 0 4px rgba(30,132,242,0.52),
+   0 0 7px rgba(30,132,242,0.92),
+   0 0 11px rgba(30,132,242,0.78),
+   0 0 16px rgba(30,132,242,0.92);
+
+}
 
  header{
    justify-content: center;
  }
 
+
  
- header#um div#titulo{
+
+ 
+ .tituloCarrinho{
     background-color: #18286950;
     color: white;
     width: 70%;
-    display: flex;
-    justify-content: center;
     font-size: 2rem;
-    margin-left: 18rem;
-    margin-top: 5rem;
     border-radius: 20px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    
+
  }
 
-header#um div#titulo img {
+ .tituloCarrinho div#titulo img {
     width: 70px;
     height: 70px;
     margin-top: 1rem;
     margin-left: 5rem;
+    
  }
+ .tabela {
+   background-color:#ffffff30;
+   border-radius: 20px;
+   display: flex;
+   position: relative;
+   margin: 0 auto 0 auto;
+   width: 70%;
+   height: 30vw;
+   flex-wrap: wrap;
 
- .tabela table{
-    background-color:#ffffff80;
-    position: absolute;
-    width: 70%;
-    height: 60%;
-    display: flex;
-    justify-content: left;
-    margin-left: 18rem;
-    border-radius: 20px;
-    list-style: none;
  }  
 
  .tabela table#pr tr{
     font-size: 2rem;
-    padding-left: 1rem;
-    
+    margin: 1rem;
+    position: absolute;
  }
 
- .tabela table#pr td#preço{
-    font-size: 2rem;
-    padding-left: 65rem;
-    ;
+ .tabela table#pr tr td{
+    padding: 1rem;
  }
- .tabela table#pr td#produtos{
-    padding-left: 1rem;
- }
+
  
- .tabela hr{
-    padding-top: 4rem;
-    border-radius: 20px;
-    width: 69.9%;
-    margin-left: 18rem;
- }
 
- .tabela button{
+
+ .tabela a#botao{
     background-color: #18286950;
     font-size: 2rem;
-    position:fixed;
-    margin-left: 92.7rem;
-    margin-top: 26.8rem;
+    position: absolute;
+    right: 0px;
+    top: 515px;
+    text-decoration: none;
+    /* align-items: flex-end; */
+    
+    
+    
+    
+    justify-content: flex-end;
+    
     border-radius: 20px;
     padding: 0.5rem;
+ }
+
+
+ footer{
+    text-align: center;
+    padding: 1rem;
  }
