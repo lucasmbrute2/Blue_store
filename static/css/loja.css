@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0; 
@@ -10,7 +10,7 @@ body{
     background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
     background-repeat: no-repeat;
     background-clip: padding-box;
-    font-family: 'Hahmlet', serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 /*  cabeçalho */
@@ -81,7 +81,7 @@ header:focus, header:hover{
     box-shadow: 0 .5rem 1rem rgba(0,0,0, .25);
     overflow: hidden;
     height: 5rem;
-    padding: 1rem;
+    padding: .5rem;
 }
 
  #navgation .menu{ 
@@ -138,12 +138,12 @@ header:focus, header:hover{
     top: 60%; /*o ícone mantém-se mais perto da borda inferior*/
     transform: translateY(-50%);
     width: 80%; 
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     transition: ease .4s;
 }
 #navgation .menu .item:hover .link span{
     opacity: 1; 
-    top:10px;
+    top: 13px;
    
 }
 
@@ -210,10 +210,9 @@ article .lateral{
     text-shadow: .1em .1em .2em black;
 }
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 10px 5px #5adfd8;;
     
 }
-  
 
 
 .lateral {
@@ -227,16 +226,42 @@ article .lateral{
 
 }
 
-
+.lateral h3{
+    color: rgba(0,212,255,1);
+    margin-bottom: 1.5rem;
+}
   
 
 .lateral div a{
-      color: white;
-      width: 5rem;
-      text-decoration: none;
+    display: block;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-left: .5rem;
+    border-left: 2px solid rgba(0,212,255,1);
+    transform: .4s ease-out;
+}
+
+.lateral div a:hover{
+    background-color: rgba(30,132,242,0.92);
+    color: rgba(9,58,121,1);
+    font-weight: bold; 
+    width:90%;
+    border-radius: 1rem;
+}
+
+footer{
+    border-top: 1px solid rgba(3,64,106,1);
+    width: 100%;
+    margin-top:.5rem;
+    
 }
 
 footer p{
-      text-align: center;
-      padding: 1rem;
+    color: rgba(202,228,225,0.98);
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem;
 }
