@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body{
     background-repeat: no-repeat;
     background-clip: padding-box;
 
-    font-family: 'Hahmlet', serif;
+    font-family: 'Roboto Slab', serif;
 }
 section{
     display: flex;
@@ -167,6 +167,9 @@ section{
 }
 #descriptionCard p{
     color: #ccc;
+    text-align: justify;
+    text-indent: 1rem;
+    line-height: 1.5rem;
     width: 60vw;
 }
 #descriptionCard .descriptionBtn{
