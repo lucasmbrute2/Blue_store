@@ -48,6 +48,8 @@ def index():
 def pagina_loja():
     produto = Vendedor.query.all()
     return render_template('loja.html', produto=produto) 
+    
+
 @app.route('/about')
 def pagina_sobre():
     return render_template('sobre.html')
@@ -177,8 +179,10 @@ def cart_delete(id):
 def finalizar():
     db.session.query(Carrinho).delete()
     db.session.commit()
-    # flash('Carinho finalizado')
-    return redirect('/loja')
+    produto = Vendedor.query.all()
+    flash("Compra efetuada com sucesso!")
+    return render_template('loja.html', produto=produto) 
+    
 
 if __name__ == '__main__':
     db.create_all()
