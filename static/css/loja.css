@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;700&display=swap');
 *{
     margin: 0;
-    padding: 0;
-    overflow: hidden;
+    padding: 0; 
+    box-sizing: border-box;
 }
+
 body{
     background: rgb(3,64,106);
     background: linear-gradient(137deg, rgba(3,64,106,1) 0%, rgba(9,58,121,1) 23%, rgba(0,212,255,1) 87%);   
-    width: 100%;
-    height: 100%;
     background-repeat: no-repeat;
     background-clip: padding-box;
     font-family: 'Hahmlet', serif;
 }
+
 /*  cabeçalho */
 #header{
     width: 100%;
@@ -150,45 +150,73 @@ header:focus, header:hover{
 #navgation .menu .item:hover .link i{
     transform: translateY(-75%); /*quando o hover for acionado, o ícone elava-se um pouco*/
 } 
+
+
+/* lista de produtos */
+
 article{
-    display: flex;
+    display: block;
     justify-content:space-between;
     align-items: center;
-    padding: 1rem;
-    width: auto;
-}
-.listaP{
-    background-color:#ffffff80;
-    display: flex;
-    justify-content: left;
-    inset-inline: center; 
-    border-radius: 20px;
-}
-.listaP .card a{
-    text-decoration: none;
-   
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 60%;
-    height: 35%;
-    margin-top: 3rem;
-    margin-left: 3.5rem;
+    /* padding-top: 1rem; */
+    /* width: auto; */
     
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  .container {
-    padding: 2px 16px;
-    text-align: center;
-  }
+}
 
-  .lateral {
+article .lateral{
+    height: 60rem;
+    position: absolute;
+}
+
+.listaP{
+    background-color:#ffffff30;
+    border-radius: 20px;
+    display: flex;
+    position: relative;
+    margin: 0 auto 0 auto;
+    width: 60%;
+    padding: 4rem;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: space-around;
+    /* flex-direction:row;   */
+}
+
+
+.listaP .card a {
+    text-decoration: none;
+    
+    
+}
+.listaP img{
+    width: 90%;
+}
+.card{
+    box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 12rem;
+    height:25rem;
+    margin: 0 0 2rem 0;
+    text-align: center;
+    background-color:#ffffffa8;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.listaP h2 {
+    font-weight: 700;
+    color: rgb(7, 87, 147);
+    text-shadow: .1em .1em .2em black;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    
+}
+  
+
+
+.lateral {
     background-color: #18286950;
     width: 10%;
     height: 62%;
@@ -197,10 +225,18 @@ article{
     border-radius: 20px;
     padding-top: 2rem;
 
-  }
+}
 
-  .lateral div a{
+
+  
+
+.lateral div a{
       color: white;
       width: 5rem;
       text-decoration: none;
-  }
+}
+
+footer p{
+      text-align: center;
+      padding: 1rem;
+}
