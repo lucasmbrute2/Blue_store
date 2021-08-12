@@ -11,7 +11,7 @@
 <body>
     <header id="header">
         <h1>Blue Store</h1>
-        <p>Painel do Administrador</p>
+        <p>Loja</p>
 
     </header>
     <nav id="navgation">
@@ -19,7 +19,7 @@
         <ul class="menu">
            
             <li class="item">
-                <a class="link" href="/cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span>Loja</span></a>
+                <a class="link" href="/cart"><i class="fas fa-shopping-cart"></i><span>Carrinho</span></a>
             </li>
 
             <li class="item">
@@ -46,16 +46,21 @@
             
         <section class='listaP'>
             {% for p in produto %}
-            <div id='card'>
+            <div class='card'>
                 <img src="{{p.imagem}}" alt="img-lorem">
                 <h2>{{p.nome}}</h2>
                 <p>{{p.descricao}}</p>
-                <a href="{{p.id}}" target="_blank">Adicionar ao carrinho</a>
+                <p>{{p.preco}}</p>
+                <a href="/cart/{{p.id}}" ><i class="fas fa-cart-plus"></i></a>
             </div>
             {% endfor %}
         </section>
         
     </article>
+
+    <footer>
+        <p>&copy; Blue Store - 2021</p> 
+    </footer>
     
 
 </body>
